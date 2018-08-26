@@ -17,6 +17,8 @@
 		43154E3821324C3B002F56C2 /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43154E3621324C3B002F56C2 /* TTNewsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43154E3921324C3B002F56C2 /* TTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E3721324C3B002F56C2 /* TTNewsViewController.m */; };
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
+		5C7446EA242A5647B12E0329 /* Pods_NewsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD4A3D562C11A3AB59429CC /* Pods_NewsDemo.framework */; };
+		D71A3988A80D745FAFCBF1CB /* Pods_TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24128622EA40F40C054ACA5D /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
 		43154DE2213249B5002F56C2 /* TTNewsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TTNewsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43154DE5213249B5002F56C2 /* TTNewsSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsSDK.h; sourceTree = "<group>"; };
 		43154DE6213249B5002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +48,12 @@
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		43154E3621324C3B002F56C2 /* TTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsViewController.h; sourceTree = "<group>"; };
 		43154E3721324C3B002F56C2 /* TTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsViewController.m; sourceTree = "<group>"; };
+		43FC5CD1213269E400709C20 /* TTNewsSDKPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsSDKPrefixHeader.pch; sourceTree = "<group>"; };
+		519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTNewsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71BAB358B1A533F08DFE05C6 /* Pods-TTNewsSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTNewsSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTNewsSDK/Pods-TTNewsSDK.release.xcconfig"; sourceTree = "<group>"; };
+		796120DED0F5D36CD78AC9F7 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		7DD4A3D562C11A3AB59429CC /* Pods_NewsDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewsDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F96351C33600CEF706589CBB /* Pods-TTNewsSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTNewsSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTNewsSDK/Pods-TTNewsSDK.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D71A3988A80D745FAFCBF1CB /* Pods_TTNewsSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +70,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */,
+				5C7446EA242A5647B12E0329 /* Pods_NewsDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11C91D42EDECE4668CC584CE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				796120DED0F5D36CD78AC9F7 /* Pods-NewsDemo.debug.xcconfig */,
+				24128622EA40F40C054ACA5D /* Pods-NewsDemo.release.xcconfig */,
+				F96351C33600CEF706589CBB /* Pods-TTNewsSDK.debug.xcconfig */,
+				71BAB358B1A533F08DFE05C6 /* Pods-TTNewsSDK.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		43154DD8213249B5002F56C2 = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +95,7 @@
 				43154DE4213249B5002F56C2 /* TTNewsSDK */,
 				43154DE3213249B5002F56C2 /* Products */,
 				43154E3E21324DB3002F56C2 /* Frameworks */,
+				11C91D42EDECE4668CC584CE /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,6 +113,7 @@
 			children = (
 				43154E2121324BB0002F56C2 /* Classes */,
 				43154DE5213249B5002F56C2 /* TTNewsSDK.h */,
+				43FC5CD1213269E400709C20 /* TTNewsSDKPrefixHeader.pch */,
 				43154DE6213249B5002F56C2 /* Info.plist */,
 			);
 			path = TTNewsSDK;
@@ -275,6 +299,8 @@
 		43154E3E21324DB3002F56C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7DD4A3D562C11A3AB59429CC /* Pods_NewsDemo.framework */,
+				519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -298,10 +324,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43154DEA213249B5002F56C2 /* Build configuration list for PBXNativeTarget "TTNewsSDK" */;
 			buildPhases = (
+				1676C69596D7599685E4713B /* [CP] Check Pods Manifest.lock */,
 				43154DDD213249B5002F56C2 /* Sources */,
 				43154DDE213249B5002F56C2 /* Frameworks */,
 				43154DDF213249B5002F56C2 /* Headers */,
 				43154DE0213249B5002F56C2 /* Resources */,
+				8A15EAAE654C2E602436CDF0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -316,9 +344,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 43154E1E21324B76002F56C2 /* Build configuration list for PBXNativeTarget "NewsDemo" */;
 			buildPhases = (
+				B53913A6B28D2C306EAC643B /* [CP] Check Pods Manifest.lock */,
 				43154E0721324B76002F56C2 /* Sources */,
 				43154E0821324B76002F56C2 /* Frameworks */,
 				43154E0921324B76002F56C2 /* Resources */,
+				269333CCEECAB90FD0EC7C71 /* [CP] Embed Pods Frameworks */,
+				30683BE40B90E2010254A652 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,6 +418,97 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1676C69596D7599685E4713B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TTNewsSDK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		269333CCEECAB90FD0EC7C71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		30683BE40B90E2010254A652 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A15EAAE654C2E602436CDF0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TTNewsSDK/Pods-TTNewsSDK-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B53913A6B28D2C306EAC643B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NewsDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		43154DDD213249B5002F56C2 /* Sources */ = {
@@ -549,6 +671,7 @@
 		};
 		43154DEB213249B5002F56C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F96351C33600CEF706589CBB /* Pods-TTNewsSDK.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +679,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/liangzhiyuan/TTNews/TTNewsSDK/TTNewsSDK/TTNewsSDKPrefixHeader.pch;
 				INFOPLIST_FILE = TTNewsSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -568,6 +693,7 @@
 		};
 		43154DEC213249B5002F56C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71BAB358B1A533F08DFE05C6 /* Pods-TTNewsSDK.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
@@ -575,6 +701,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/liangzhiyuan/TTNews/TTNewsSDK/TTNewsSDK/TTNewsSDKPrefixHeader.pch;
 				INFOPLIST_FILE = TTNewsSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -587,6 +715,7 @@
 		};
 		43154E1F21324B76002F56C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 796120DED0F5D36CD78AC9F7 /* Pods-NewsDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -600,6 +729,7 @@
 		};
 		43154E2021324B76002F56C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24128622EA40F40C054ACA5D /* Pods-NewsDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
