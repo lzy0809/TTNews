@@ -67,6 +67,7 @@
 		43FC5CE921327C0D00709C20 /* TTNetParameterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNetParameterHeader.h; sourceTree = "<group>"; };
 		43FC5CEF213282D100709C20 /* TTCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCategory.h; sourceTree = "<group>"; };
 		43FC5CF0213282D100709C20 /* TTCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCategory.m; sourceTree = "<group>"; };
+		43FC5CF42132A26F00709C20 /* GYDataCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GYDataCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTNewsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BAB358B1A533F08DFE05C6 /* Pods-TTNewsSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTNewsSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTNewsSDK/Pods-TTNewsSDK.release.xcconfig"; sourceTree = "<group>"; };
 		796120DED0F5D36CD78AC9F7 /* Pods-NewsDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -324,6 +325,7 @@
 		43154E3E21324DB3002F56C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				43FC5CF42132A26F00709C20 /* GYDataCenter.framework */,
 				7DD4A3D562C11A3AB59429CC /* Pods_NewsDemo.framework */,
 				519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */,
 			);
@@ -732,6 +734,7 @@
 				GCC_PREFIX_HEADER = /Users/liangzhiyuan/TTNews/TTNewsSDK/TTNewsSDK/TTNewsSDKPrefixHeader.pch;
 				INFOPLIST_FILE = TTNewsSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzy.TTNewsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -754,6 +757,7 @@
 				GCC_PREFIX_HEADER = /Users/liangzhiyuan/TTNews/TTNewsSDK/TTNewsSDK/TTNewsSDKPrefixHeader.pch;
 				INFOPLIST_FILE = TTNewsSDK/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzy.TTNewsSDK;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
