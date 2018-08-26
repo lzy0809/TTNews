@@ -10,5 +10,8 @@
 #define TTNewsSDKPrefixHeader_pch
 
 #import <YYModel/YYModel.h>
+#import "UIView+Extension.h"
+#import "UIColor+Hex.h"
+#import "TTNetParameterHeader.h"
 
 #endif /* TTNewsSDKPrefixHeader_pch */

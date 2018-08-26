@@ -7,9 +7,13 @@
 //
 
 #import "TTNewsViewController.h"
+#import "TTNetManager.h"
+#import "TTParseParameters.h"
+
+#import "TTCategory.h"
 
 @interface TTNewsViewController ()
-
+@property (nonatomic, strong) NSMutableArray *channels;
 @end
 
 @implementation TTNewsViewController
@@ -18,11 +22,26 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor redColor];
+    
+    [self requestData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)requestData {
+    [[TTNetManager sharedManager] GET:kChannelListURL parameters:[TTParseParameters requestDicPraiseChannleList] success:^(NSURLSessionDataTask *operation, id responseObject) {
+        for (NSDictionary *dict in responseObject[@"data"][@"data"]) {
+            TTCategory *category = [TTCategory yy_modelWithJSON:dict];
+            [self.channels addObject:category];
+        }
+        NSLog(@"请求成功:%ld",self.channels.count);
+    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
+        NSLog(@"请求失败了");
+    }];
 }
 
+- (NSMutableArray *)channels {
+    if (_channels == nil) {
+        _channels = [NSMutableArray array];
+    }
+    return _channels;
+}
 @end
