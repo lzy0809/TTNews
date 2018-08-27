@@ -14,8 +14,6 @@
 		43154E1721324B76002F56C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1621324B76002F56C2 /* Assets.xcassets */; };
 		43154E1A21324B76002F56C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1821324B76002F56C2 /* LaunchScreen.storyboard */; };
 		43154E1D21324B76002F56C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E1C21324B76002F56C2 /* main.m */; };
-		43154E3821324C3B002F56C2 /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43154E3621324C3B002F56C2 /* TTNewsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43154E3921324C3B002F56C2 /* TTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E3721324C3B002F56C2 /* TTNewsViewController.m */; };
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,8 +41,6 @@
 		43154E1921324B76002F56C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43154E1B21324B76002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43154E3621324C3B002F56C2 /* TTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsViewController.h; sourceTree = "<group>"; };
-		43154E3721324C3B002F56C2 /* TTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +84,7 @@
 		43154DE4213249B5002F56C2 /* TTNewsSDK */ = {
 			isa = PBXGroup;
 			children = (
-				43154E2121324BB0002F56C2 /* Classes */,
+				437009C7213394D100B0B3A4 /* Classes */,
 				43154DE5213249B5002F56C2 /* TTNewsSDK.h */,
 				43154DE6213249B5002F56C2 /* Info.plist */,
 			);
@@ -111,172 +107,202 @@
 			path = NewsDemo;
 			sourceTree = "<group>";
 		};
-		43154E2121324BB0002F56C2 /* Classes */ = {
+		43154E3E21324DB3002F56C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				43154E3121324C21002F56C2 /* Main */,
-				43154E2B21324BB0002F56C2 /* NewsList */,
-				43154E2621324BB0002F56C2 /* Channel */,
-				43154E2221324BB0002F56C2 /* Unitl */,
-				43154E2321324BB0002F56C2 /* Tools */,
-				43154E2421324BB0002F56C2 /* Extension */,
-				43154E3021324BB0002F56C2 /* Share */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		437009C7213394D100B0B3A4 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				437009D9213394D100B0B3A4 /* NewsList */,
+				437009D4213394D100B0B3A4 /* Channel */,
+				437009CF213394D100B0B3A4 /* NewsDetail */,
+				437009C8213394D100B0B3A4 /* Expand */,
+				437009DE213394D100B0B3A4 /* Share */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		43154E2221324BB0002F56C2 /* Unitl */ = {
+		437009C8213394D100B0B3A4 /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				437009CE213394D100B0B3A4 /* Tools */,
+				437009C9213394D100B0B3A4 /* Database */,
+				437009CA213394D100B0B3A4 /* Network */,
+				437009CB213394D100B0B3A4 /* Utils */,
+				437009CC213394D100B0B3A4 /* Defines */,
+				437009CD213394D100B0B3A4 /* Categories */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		437009C9213394D100B0B3A4 /* Database */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Unitl;
+			path = Database;
 			sourceTree = "<group>";
 		};
-		43154E2321324BB0002F56C2 /* Tools */ = {
+		437009CA213394D100B0B3A4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		437009CB213394D100B0B3A4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		437009CC213394D100B0B3A4 /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		437009CD213394D100B0B3A4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		437009CE213394D100B0B3A4 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		43154E2421324BB0002F56C2 /* Extension */ = {
+		437009CF213394D100B0B3A4 /* NewsDetail */ = {
 			isa = PBXGroup;
 			children = (
+				437009D0213394D100B0B3A4 /* ViewModel */,
+				437009D1213394D100B0B3A4 /* Model */,
+				437009D2213394D100B0B3A4 /* View */,
+				437009D3213394D100B0B3A4 /* ViewController */,
 			);
-			path = Extension;
+			path = NewsDetail;
 			sourceTree = "<group>";
 		};
-		43154E2621324BB0002F56C2 /* Channel */ = {
-			isa = PBXGroup;
-			children = (
-				43154E2721324BB0002F56C2 /* ViewModel */,
-				43154E2821324BB0002F56C2 /* Model */,
-				43154E2921324BB0002F56C2 /* View */,
-				43154E2A21324BB0002F56C2 /* ViewContrller */,
-			);
-			path = Channel;
-			sourceTree = "<group>";
-		};
-		43154E2721324BB0002F56C2 /* ViewModel */ = {
+		437009D0213394D100B0B3A4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		43154E2821324BB0002F56C2 /* Model */ = {
+		437009D1213394D100B0B3A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		43154E2921324BB0002F56C2 /* View */ = {
+		437009D2213394D100B0B3A4 /* View */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		43154E2A21324BB0002F56C2 /* ViewContrller */ = {
+		437009D3213394D100B0B3A4 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-			);
-			path = ViewContrller;
-			sourceTree = "<group>";
-		};
-		43154E2B21324BB0002F56C2 /* NewsList */ = {
-			isa = PBXGroup;
-			children = (
-				43154E2C21324BB0002F56C2 /* ViewModel */,
-				43154E2D21324BB0002F56C2 /* Model */,
-				43154E2E21324BB0002F56C2 /* View */,
-				43154E2F21324BB0002F56C2 /* ViewContrller */,
-			);
-			path = NewsList;
-			sourceTree = "<group>";
-		};
-		43154E2C21324BB0002F56C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43154E2D21324BB0002F56C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43154E2E21324BB0002F56C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43154E2F21324BB0002F56C2 /* ViewContrller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewContrller;
-			sourceTree = "<group>";
-		};
-		43154E3021324BB0002F56C2 /* Share */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Share;
-			sourceTree = "<group>";
-		};
-		43154E3121324C21002F56C2 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				43154E3221324C21002F56C2 /* ViewModel */,
-				43154E3321324C21002F56C2 /* Model */,
-				43154E3421324C21002F56C2 /* View */,
-				43154E3521324C21002F56C2 /* ViewController */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		43154E3221324C21002F56C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43154E3321324C21002F56C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43154E3421324C21002F56C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43154E3521324C21002F56C2 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				43154E3621324C3B002F56C2 /* TTNewsViewController.h */,
-				43154E3721324C3B002F56C2 /* TTNewsViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		43154E3E21324DB3002F56C2 /* Frameworks */ = {
+		437009D4213394D100B0B3A4 /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				437009D5213394D100B0B3A4 /* ViewModel */,
+				437009D6213394D100B0B3A4 /* Model */,
+				437009D7213394D100B0B3A4 /* View */,
+				437009D8213394D100B0B3A4 /* ViewController */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		437009D5213394D100B0B3A4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			name = Frameworks;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		437009D6213394D100B0B3A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		437009D7213394D100B0B3A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		437009D8213394D100B0B3A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		437009D9213394D100B0B3A4 /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				437009DA213394D100B0B3A4 /* ViewModel */,
+				437009DB213394D100B0B3A4 /* Model */,
+				437009DC213394D100B0B3A4 /* View */,
+				437009DD213394D100B0B3A4 /* ViewController */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		437009DA213394D100B0B3A4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		437009DB213394D100B0B3A4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		437009DC213394D100B0B3A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		437009DD213394D100B0B3A4 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		437009DE213394D100B0B3A4 /* Share */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Share;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +312,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43154E3821324C3B002F56C2 /* TTNewsViewController.h in Headers */,
 				43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,7 +418,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43154E3921324C3B002F56C2 /* TTNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
