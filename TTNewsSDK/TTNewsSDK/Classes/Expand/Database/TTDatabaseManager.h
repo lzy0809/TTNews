@@ -14,7 +14,5 @@
 
 + (instancetype)sharedManager;
 
-+ (void)updateChannels:(void(^)(NSArray *channels))completion;
-
 @end
 

@@ -10,7 +10,9 @@
 
 @interface NSString (Extension)
 
-+ (NSString *)MD5Encode:(NSString *)str;
+- (NSString *)MD5Encode;
+
+- (CGFloat)widthWithFont:(UIFont *)font;
 
 @end
 

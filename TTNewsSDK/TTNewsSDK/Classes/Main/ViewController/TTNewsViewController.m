@@ -7,38 +7,60 @@
 //
 
 #import "TTNewsViewController.h"
-#import "TTDatabaseManager.h"
+#import "TTChannelViewModel.h"
+#import "TTChannelView.h"
+#import "TTPageContentView.h"
 
-#import "TTCategory.h"
+@interface TTNewsViewController () <TTChannelDelegate, TTPageContentDelegate>
+@property (nonatomic, strong) TTChannelView *channelView;
 
-@interface TTNewsViewController ()
-@property (nonatomic, strong) NSMutableArray *channels;
+@property (nonatomic, strong) TTPageContentView *pageContentView;
 @end
 
 @implementation TTNewsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
     
-    self.view.backgroundColor = [UIColor redColor];
+    [self.view addSubview:self.channelView];
+    [self.view addSubview:self.pageContentView];
     
-    [self requestData];
+    __weak typeof(self)weakSelf = self;
+    [self.channelView refreshData:^(NSArray * _Nonnull channels) {
+        weakSelf.pageContentView.channels = channels;
+    }];
 }
 
-- (void)requestData {
-    if ([TTDatabaseManager sharedManager].cacheChannels.count > 0) {
-        NSLog(@"数据库有值:%@",[TTDatabaseManager sharedManager].cacheChannels);
-    } else {
-        [TTDatabaseManager updateChannels:^(NSArray *channels) {
-            NSLog(@"接口返回:%@",channels);
-        }];
-    }
+#pragma mark - TTChannelDelegate
+- (void)channelViewDidSelectedIndex:(NSInteger)index {
+    [self.pageContentView scrollToTargetIndex:index];
 }
 
-- (NSMutableArray *)channels {
-    if (_channels == nil) {
-        _channels = [NSMutableArray array];
-    }
-    return _channels;
+#pragma mark - TTPageContentDelegate
+- (void)updateStatusWithProgress:(CGFloat)progress sourceIndex:(NSInteger)sourceIndex targetIndex:(NSInteger)targetIndex {
+    [self.channelView updateStatusWithProgress:progress sourceIndex:sourceIndex targetIndex:targetIndex];
 }
+
+- (void)scrollToIndex:(NSInteger)index {
+    [self.channelView channelViewScrollToIndex:index];
+}
+
+
+- (TTChannelView *)channelView {
+    if (_channelView == nil) {
+        _channelView = [[TTChannelView alloc] initWithFrame:CGRectMake(0, NavigationBarH, self.view.width, 40)];
+        _channelView.delegate = self;
+    }
+    return _channelView;
+}
+
+- (TTPageContentView *)pageContentView {
+    if (_pageContentView == nil) {
+        _pageContentView = [[TTPageContentView alloc] initWithFrame:CGRectMake(0, self.channelView.bottom, self.view.width, self.view.height - self.channelView.bottom)];
+        _pageContentView.delegate = self;
+    }
+    return _pageContentView;
+}
+
 @end

@@ -1,8 +1,5 @@
 //
 //  UIView+Extension.m
-//  360News
-//
-//  Created by jiangenhao on 17/1/10.
 //
 
 #import "UIView+Extension.h"

@@ -7,6 +7,7 @@
 //
 
 #import "TTCategory.h"
+#import "NSString+Extension.h"
 
 @implementation TTCategory
 
@@ -37,6 +38,13 @@
                        ];
     };
     return properties;
+}
+
+- (CGFloat)textWidth {
+    if (_textWidth == 0 && _name.length > 0) {
+        _textWidth = [_name widthWithFont:[UIFont systemFontOfSize:16]] + 28;
+    }
+    return _textWidth;
 }
 
 @end

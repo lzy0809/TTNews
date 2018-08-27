@@ -13,5 +13,6 @@
 #import "UIView+Extension.h"
 #import "UIColor+Hex.h"
 #import "TTNetParameterHeader.h"
+#import "TTCommonDefines.h"
 
 #endif /* TTNewsSDKPrefixHeader_pch */

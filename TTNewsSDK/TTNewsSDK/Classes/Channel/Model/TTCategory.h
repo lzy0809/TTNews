@@ -18,4 +18,6 @@
 @property (nonatomic, assign) NSInteger flages;
 @property (nonatomic, assign) NSInteger tip_new;
 @property (nonatomic, assign) NSInteger type;
+
+@property (nonatomic, assign) CGFloat textWidth;
 @end

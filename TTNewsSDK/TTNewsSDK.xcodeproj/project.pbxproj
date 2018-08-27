@@ -17,6 +17,16 @@
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
 		435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC83F2133A69B00EA0D3B /* NSString+Extension.h */; };
 		435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 435CC8402133A69B00EA0D3B /* NSString+Extension.m */; };
+		435CC8452133AA1400EA0D3B /* TTChannelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC8432133AA1400EA0D3B /* TTChannelView.h */; };
+		435CC8462133AA1400EA0D3B /* TTChannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 435CC8442133AA1400EA0D3B /* TTChannelView.m */; };
+		4375ED4E2133CBDC00B21D34 /* TTChannelViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED4C2133CBDC00B21D34 /* TTChannelViewModel.h */; };
+		4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED4D2133CBDC00B21D34 /* TTChannelViewModel.m */; };
+		4375ED522133D7E500B21D34 /* TTNewsListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED502133D7E500B21D34 /* TTNewsListCell.h */; };
+		4375ED532133D7E500B21D34 /* TTNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED512133D7E500B21D34 /* TTNewsListCell.m */; };
+		4375ED5A2133E6FC00B21D34 /* TTPageContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED582133E6FC00B21D34 /* TTPageContentView.h */; };
+		4375ED5B2133E6FC00B21D34 /* TTPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED592133E6FC00B21D34 /* TTPageContentView.m */; };
+		43B94BEB2133BF3500C1B98E /* TTChannelViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B94BE92133BF3500C1B98E /* TTChannelViewCell.h */; };
+		43B94BEC2133BF3500C1B98E /* TTChannelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B94BEA2133BF3500C1B98E /* TTChannelViewCell.m */; };
 		43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD88213396F400285AEC /* TTParseParameters.h */; };
 		43BCADA5213396F400285AEC /* TTNetManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD89213396F400285AEC /* TTNetManager.h */; };
 		43BCADA6213396F400285AEC /* TTNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD8A213396F400285AEC /* TTNetManager.m */; };
@@ -28,7 +38,7 @@
 		43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD93213396F400285AEC /* UIView+Extension.m */; };
 		43BCADAD213396F400285AEC /* TTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD9B213396F400285AEC /* TTCategory.m */; };
 		43BCADAE213396F400285AEC /* TTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD9C213396F400285AEC /* TTCategory.h */; };
-		43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCADA0213396F400285AEC /* TTNewsViewController.h */; };
+		43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCADA0213396F400285AEC /* TTNewsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43BCADB0213396F400285AEC /* TTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCADA1213396F400285AEC /* TTNewsViewController.m */; };
 		43BCADBA2133990A00285AEC /* TTDatabaseManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCADB82133990A00285AEC /* TTDatabaseManager.h */; };
 		43BCADBB2133990A00285AEC /* TTDatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCADB92133990A00285AEC /* TTDatabaseManager.m */; };
@@ -63,6 +73,17 @@
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		435CC83F2133A69B00EA0D3B /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		435CC8402133A69B00EA0D3B /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		435CC8432133AA1400EA0D3B /* TTChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelView.h; sourceTree = "<group>"; };
+		435CC8442133AA1400EA0D3B /* TTChannelView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTChannelView.m; sourceTree = "<group>"; };
+		435CC8482133AC0700EA0D3B /* TTCommonDefines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCommonDefines.h; sourceTree = "<group>"; };
+		4375ED4C2133CBDC00B21D34 /* TTChannelViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelViewModel.h; sourceTree = "<group>"; };
+		4375ED4D2133CBDC00B21D34 /* TTChannelViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTChannelViewModel.m; sourceTree = "<group>"; };
+		4375ED502133D7E500B21D34 /* TTNewsListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsListCell.h; sourceTree = "<group>"; };
+		4375ED512133D7E500B21D34 /* TTNewsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsListCell.m; sourceTree = "<group>"; };
+		4375ED582133E6FC00B21D34 /* TTPageContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPageContentView.h; sourceTree = "<group>"; };
+		4375ED592133E6FC00B21D34 /* TTPageContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPageContentView.m; sourceTree = "<group>"; };
+		43B94BE92133BF3500C1B98E /* TTChannelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelViewCell.h; sourceTree = "<group>"; };
+		43B94BEA2133BF3500C1B98E /* TTChannelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTChannelViewCell.m; sourceTree = "<group>"; };
 		43BCAD88213396F400285AEC /* TTParseParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTParseParameters.h; sourceTree = "<group>"; };
 		43BCAD89213396F400285AEC /* TTNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNetManager.h; sourceTree = "<group>"; };
 		43BCAD8A213396F400285AEC /* TTNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNetManager.m; sourceTree = "<group>"; };
@@ -239,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				43BCAD8E213396F400285AEC /* TTNetParameterHeader.h */,
+				435CC8482133AC0700EA0D3B /* TTCommonDefines.h */,
 			);
 			path = Defines;
 			sourceTree = "<group>";
@@ -362,6 +384,10 @@
 		43BCADB1213397BA00285AEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4375ED502133D7E500B21D34 /* TTNewsListCell.h */,
+				4375ED512133D7E500B21D34 /* TTNewsListCell.m */,
+				4375ED582133E6FC00B21D34 /* TTPageContentView.h */,
+				4375ED592133E6FC00B21D34 /* TTPageContentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -397,6 +423,8 @@
 		43BCADB6213397E600285AEC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4375ED4C2133CBDC00B21D34 /* TTChannelViewModel.h */,
+				4375ED4D2133CBDC00B21D34 /* TTChannelViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -404,6 +432,10 @@
 		43BCADB7213397E600285AEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				435CC8432133AA1400EA0D3B /* TTChannelView.h */,
+				435CC8442133AA1400EA0D3B /* TTChannelView.m */,
+				43B94BE92133BF3500C1B98E /* TTChannelViewCell.h */,
+				43B94BEA2133BF3500C1B98E /* TTChannelViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -418,11 +450,16 @@
 				435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */,
 				43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */,
 				43BCADAA213396F400285AEC /* UIView+Extension.h in Headers */,
+				4375ED522133D7E500B21D34 /* TTNewsListCell.h in Headers */,
+				4375ED5A2133E6FC00B21D34 /* TTPageContentView.h in Headers */,
 				43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */,
 				43BCADBA2133990A00285AEC /* TTDatabaseManager.h in Headers */,
 				43BCADA8213396F400285AEC /* TTNetParameterHeader.h in Headers */,
+				435CC8452133AA1400EA0D3B /* TTChannelView.h in Headers */,
 				43BCADAE213396F400285AEC /* TTCategory.h in Headers */,
+				4375ED4E2133CBDC00B21D34 /* TTChannelViewModel.h in Headers */,
 				43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */,
+				43B94BEB2133BF3500C1B98E /* TTChannelViewCell.h in Headers */,
 				43BCADAB213396F400285AEC /* UIColor+Hex.h in Headers */,
 				43BCADA5213396F400285AEC /* TTNetManager.h in Headers */,
 			);
@@ -632,12 +669,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				43BCADA6213396F400285AEC /* TTNetManager.m in Sources */,
+				4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */,
 				43BCADA9213396F400285AEC /* UIColor+Hex.m in Sources */,
+				435CC8462133AA1400EA0D3B /* TTChannelView.m in Sources */,
+				4375ED532133D7E500B21D34 /* TTNewsListCell.m in Sources */,
 				43BCADAD213396F400285AEC /* TTCategory.m in Sources */,
 				43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */,
 				43BCADA7213396F400285AEC /* TTParseParameters.m in Sources */,
+				4375ED5B2133E6FC00B21D34 /* TTPageContentView.m in Sources */,
 				43BCADBB2133990A00285AEC /* TTDatabaseManager.m in Sources */,
 				43BCADB0213396F400285AEC /* TTNewsViewController.m in Sources */,
+				43B94BEC2133BF3500C1B98E /* TTChannelViewCell.m in Sources */,
 				435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
