@@ -14,16 +14,20 @@
 		43154E1721324B76002F56C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1621324B76002F56C2 /* Assets.xcassets */; };
 		43154E1A21324B76002F56C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1821324B76002F56C2 /* LaunchScreen.storyboard */; };
 		43154E1D21324B76002F56C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E1C21324B76002F56C2 /* main.m */; };
-		43154E3821324C3B002F56C2 /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43154E3621324C3B002F56C2 /* TTNewsViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		43154E3921324C3B002F56C2 /* TTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E3721324C3B002F56C2 /* TTNewsViewController.m */; };
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
-		43FC5CEA2132816500709C20 /* TTNetManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FC5CE621327C0D00709C20 /* TTNetManager.h */; };
-		43FC5CEB2132816900709C20 /* TTNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC5CE721327C0D00709C20 /* TTNetManager.m */; };
-		43FC5CEC2132816D00709C20 /* TTParseParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FC5CE521327C0D00709C20 /* TTParseParameters.h */; };
-		43FC5CED2132817000709C20 /* TTParseParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC5CE821327C0D00709C20 /* TTParseParameters.m */; };
-		43FC5CEE2132817300709C20 /* TTNetParameterHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FC5CE921327C0D00709C20 /* TTNetParameterHeader.h */; };
-		43FC5CF1213282D100709C20 /* TTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43FC5CEF213282D100709C20 /* TTCategory.h */; };
-		43FC5CF2213282D100709C20 /* TTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43FC5CF0213282D100709C20 /* TTCategory.m */; };
+		43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD88213396F400285AEC /* TTParseParameters.h */; };
+		43BCADA5213396F400285AEC /* TTNetManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD89213396F400285AEC /* TTNetManager.h */; };
+		43BCADA6213396F400285AEC /* TTNetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD8A213396F400285AEC /* TTNetManager.m */; };
+		43BCADA7213396F400285AEC /* TTParseParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD8B213396F400285AEC /* TTParseParameters.m */; };
+		43BCADA8213396F400285AEC /* TTNetParameterHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD8E213396F400285AEC /* TTNetParameterHeader.h */; };
+		43BCADA9213396F400285AEC /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD90213396F400285AEC /* UIColor+Hex.m */; };
+		43BCADAA213396F400285AEC /* UIView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD91213396F400285AEC /* UIView+Extension.h */; };
+		43BCADAB213396F400285AEC /* UIColor+Hex.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD92213396F400285AEC /* UIColor+Hex.h */; };
+		43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD93213396F400285AEC /* UIView+Extension.m */; };
+		43BCADAD213396F400285AEC /* TTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCAD9B213396F400285AEC /* TTCategory.m */; };
+		43BCADAE213396F400285AEC /* TTCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD9C213396F400285AEC /* TTCategory.h */; };
+		43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCADA0213396F400285AEC /* TTNewsViewController.h */; };
+		43BCADB0213396F400285AEC /* TTNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BCADA1213396F400285AEC /* TTNewsViewController.m */; };
 		5C7446EA242A5647B12E0329 /* Pods_NewsDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DD4A3D562C11A3AB59429CC /* Pods_NewsDemo.framework */; };
 		D71A3988A80D745FAFCBF1CB /* Pods_TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */; };
 /* End PBXBuildFile section */
@@ -53,20 +57,20 @@
 		43154E1921324B76002F56C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43154E1B21324B76002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		43154E3621324C3B002F56C2 /* TTNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsViewController.h; sourceTree = "<group>"; };
-		43154E3721324C3B002F56C2 /* TTNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsViewController.m; sourceTree = "<group>"; };
+		43BCAD88213396F400285AEC /* TTParseParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTParseParameters.h; sourceTree = "<group>"; };
+		43BCAD89213396F400285AEC /* TTNetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNetManager.h; sourceTree = "<group>"; };
+		43BCAD8A213396F400285AEC /* TTNetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNetManager.m; sourceTree = "<group>"; };
+		43BCAD8B213396F400285AEC /* TTParseParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTParseParameters.m; sourceTree = "<group>"; };
+		43BCAD8E213396F400285AEC /* TTNetParameterHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNetParameterHeader.h; sourceTree = "<group>"; };
+		43BCAD90213396F400285AEC /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		43BCAD91213396F400285AEC /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		43BCAD92213396F400285AEC /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		43BCAD93213396F400285AEC /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		43BCAD9B213396F400285AEC /* TTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTCategory.m; sourceTree = "<group>"; };
+		43BCAD9C213396F400285AEC /* TTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTCategory.h; sourceTree = "<group>"; };
+		43BCADA0213396F400285AEC /* TTNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTNewsViewController.h; sourceTree = "<group>"; };
+		43BCADA1213396F400285AEC /* TTNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTNewsViewController.m; sourceTree = "<group>"; };
 		43FC5CD1213269E400709C20 /* TTNewsSDKPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsSDKPrefixHeader.pch; sourceTree = "<group>"; };
-		43FC5CD321326BE300709C20 /* UIColor+Hex.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
-		43FC5CD421326BE300709C20 /* UIColor+Hex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
-		43FC5CD521326BF200709C20 /* UIView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		43FC5CD621326BF200709C20 /* UIView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
-		43FC5CE521327C0D00709C20 /* TTParseParameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTParseParameters.h; sourceTree = "<group>"; };
-		43FC5CE621327C0D00709C20 /* TTNetManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNetManager.h; sourceTree = "<group>"; };
-		43FC5CE721327C0D00709C20 /* TTNetManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNetManager.m; sourceTree = "<group>"; };
-		43FC5CE821327C0D00709C20 /* TTParseParameters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTParseParameters.m; sourceTree = "<group>"; };
-		43FC5CE921327C0D00709C20 /* TTNetParameterHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNetParameterHeader.h; sourceTree = "<group>"; };
-		43FC5CEF213282D100709C20 /* TTCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTCategory.h; sourceTree = "<group>"; };
-		43FC5CF0213282D100709C20 /* TTCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTCategory.m; sourceTree = "<group>"; };
 		43FC5CF42132A26F00709C20 /* GYDataCenter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GYDataCenter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		519C45F8ECCC527D93579558 /* Pods_TTNewsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTNewsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BAB358B1A533F08DFE05C6 /* Pods-TTNewsSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTNewsSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTNewsSDK/Pods-TTNewsSDK.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,7 +134,7 @@
 		43154DE4213249B5002F56C2 /* TTNewsSDK */ = {
 			isa = PBXGroup;
 			children = (
-				43154E2121324BB0002F56C2 /* Classes */,
+				43BCAD83213396F400285AEC /* Classes */,
 				43154DE5213249B5002F56C2 /* TTNewsSDK.h */,
 				43FC5CD1213269E400709C20 /* TTNewsSDKPrefixHeader.pch */,
 				43154DE6213249B5002F56C2 /* Info.plist */,
@@ -154,174 +158,6 @@
 			path = NewsDemo;
 			sourceTree = "<group>";
 		};
-		43154E2121324BB0002F56C2 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				43154E3121324C21002F56C2 /* Main */,
-				43154E2B21324BB0002F56C2 /* NewsList */,
-				43154E2621324BB0002F56C2 /* Channel */,
-				43154E2221324BB0002F56C2 /* Unitl */,
-				43154E2321324BB0002F56C2 /* Tools */,
-				43154E2421324BB0002F56C2 /* Extension */,
-				43154E3021324BB0002F56C2 /* Share */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		43154E2221324BB0002F56C2 /* Unitl */ = {
-			isa = PBXGroup;
-			children = (
-				43FC5CD521326BF200709C20 /* UIView+Extension.h */,
-				43FC5CD621326BF200709C20 /* UIView+Extension.m */,
-				43FC5CD421326BE300709C20 /* UIColor+Hex.h */,
-				43FC5CD321326BE300709C20 /* UIColor+Hex.m */,
-			);
-			path = Unitl;
-			sourceTree = "<group>";
-		};
-		43154E2321324BB0002F56C2 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				43FC5CE421327C0D00709C20 /* Network */,
-			);
-			path = Tools;
-			sourceTree = "<group>";
-		};
-		43154E2421324BB0002F56C2 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
-		43154E2621324BB0002F56C2 /* Channel */ = {
-			isa = PBXGroup;
-			children = (
-				43154E2721324BB0002F56C2 /* ViewModel */,
-				43154E2821324BB0002F56C2 /* Model */,
-				43154E2921324BB0002F56C2 /* View */,
-				43154E2A21324BB0002F56C2 /* ViewContrller */,
-			);
-			path = Channel;
-			sourceTree = "<group>";
-		};
-		43154E2721324BB0002F56C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43154E2821324BB0002F56C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				43FC5CEF213282D100709C20 /* TTCategory.h */,
-				43FC5CF0213282D100709C20 /* TTCategory.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43154E2921324BB0002F56C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43154E2A21324BB0002F56C2 /* ViewContrller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewContrller;
-			sourceTree = "<group>";
-		};
-		43154E2B21324BB0002F56C2 /* NewsList */ = {
-			isa = PBXGroup;
-			children = (
-				43154E2C21324BB0002F56C2 /* ViewModel */,
-				43154E2D21324BB0002F56C2 /* Model */,
-				43154E2E21324BB0002F56C2 /* View */,
-				43154E2F21324BB0002F56C2 /* ViewContrller */,
-			);
-			path = NewsList;
-			sourceTree = "<group>";
-		};
-		43154E2C21324BB0002F56C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43154E2D21324BB0002F56C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43154E2E21324BB0002F56C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43154E2F21324BB0002F56C2 /* ViewContrller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewContrller;
-			sourceTree = "<group>";
-		};
-		43154E3021324BB0002F56C2 /* Share */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Share;
-			sourceTree = "<group>";
-		};
-		43154E3121324C21002F56C2 /* Main */ = {
-			isa = PBXGroup;
-			children = (
-				43154E3221324C21002F56C2 /* ViewModel */,
-				43154E3321324C21002F56C2 /* Model */,
-				43154E3421324C21002F56C2 /* View */,
-				43154E3521324C21002F56C2 /* ViewController */,
-			);
-			path = Main;
-			sourceTree = "<group>";
-		};
-		43154E3221324C21002F56C2 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43154E3321324C21002F56C2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43154E3421324C21002F56C2 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43154E3521324C21002F56C2 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				43154E3621324C3B002F56C2 /* TTNewsViewController.h */,
-				43154E3721324C3B002F56C2 /* TTNewsViewController.m */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		43154E3E21324DB3002F56C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -332,16 +168,232 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		43FC5CE421327C0D00709C20 /* Network */ = {
+		43BCAD83213396F400285AEC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				43FC5CE621327C0D00709C20 /* TTNetManager.h */,
-				43FC5CE721327C0D00709C20 /* TTNetManager.m */,
-				43FC5CE521327C0D00709C20 /* TTParseParameters.h */,
-				43FC5CE821327C0D00709C20 /* TTParseParameters.m */,
-				43FC5CE921327C0D00709C20 /* TTNetParameterHeader.h */,
+				43BCAD9E213396F400285AEC /* Main */,
+				43BCADA2213396F400285AEC /* NewsList */,
+				43BCAD99213396F400285AEC /* Channel */,
+				43BCAD94213396F400285AEC /* NewsDetail */,
+				43BCAD84213396F400285AEC /* Expand */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		43BCAD84213396F400285AEC /* Expand */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD85213396F400285AEC /* Database */,
+				43BCAD86213396F400285AEC /* Tools */,
+				43BCAD87213396F400285AEC /* Network */,
+				43BCAD8C213396F400285AEC /* Utils */,
+				43BCAD8D213396F400285AEC /* Defines */,
+				43BCAD8F213396F400285AEC /* Categories */,
+			);
+			path = Expand;
+			sourceTree = "<group>";
+		};
+		43BCAD85213396F400285AEC /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		43BCAD86213396F400285AEC /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		43BCAD87213396F400285AEC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD88213396F400285AEC /* TTParseParameters.h */,
+				43BCAD89213396F400285AEC /* TTNetManager.h */,
+				43BCAD8A213396F400285AEC /* TTNetManager.m */,
+				43BCAD8B213396F400285AEC /* TTParseParameters.m */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		43BCAD8C213396F400285AEC /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		43BCAD8D213396F400285AEC /* Defines */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD8E213396F400285AEC /* TTNetParameterHeader.h */,
+			);
+			path = Defines;
+			sourceTree = "<group>";
+		};
+		43BCAD8F213396F400285AEC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD90213396F400285AEC /* UIColor+Hex.m */,
+				43BCAD91213396F400285AEC /* UIView+Extension.h */,
+				43BCAD92213396F400285AEC /* UIColor+Hex.h */,
+				43BCAD93213396F400285AEC /* UIView+Extension.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		43BCAD94213396F400285AEC /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD95213396F400285AEC /* ViewModel */,
+				43BCAD96213396F400285AEC /* Model */,
+				43BCAD97213396F400285AEC /* View */,
+				43BCAD98213396F400285AEC /* ViewController */,
+			);
+			path = NewsDetail;
+			sourceTree = "<group>";
+		};
+		43BCAD95213396F400285AEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43BCAD96213396F400285AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43BCAD97213396F400285AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43BCAD98213396F400285AEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		43BCAD99213396F400285AEC /* Channel */ = {
+			isa = PBXGroup;
+			children = (
+				43BCADB7213397E600285AEC /* View */,
+				43BCADB6213397E600285AEC /* ViewModel */,
+				43BCAD9A213396F400285AEC /* Model */,
+				43BCAD9D213396F400285AEC /* ViewController */,
+			);
+			path = Channel;
+			sourceTree = "<group>";
+		};
+		43BCAD9A213396F400285AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				43BCAD9B213396F400285AEC /* TTCategory.m */,
+				43BCAD9C213396F400285AEC /* TTCategory.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43BCAD9D213396F400285AEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		43BCAD9E213396F400285AEC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				43BCADB1213397BA00285AEC /* View */,
+				43BCADB2213397BA00285AEC /* ViewModel */,
+				43BCAD9F213396F400285AEC /* ViewController */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		43BCAD9F213396F400285AEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				43BCADA0213396F400285AEC /* TTNewsViewController.h */,
+				43BCADA1213396F400285AEC /* TTNewsViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		43BCADA2213396F400285AEC /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				43BCADB3213397CC00285AEC /* Model */,
+				43BCADB5213397CC00285AEC /* View */,
+				43BCADB4213397CC00285AEC /* ViewModel */,
+				43BCADA3213396F400285AEC /* ViewController */,
+			);
+			path = NewsList;
+			sourceTree = "<group>";
+		};
+		43BCADA3213396F400285AEC /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		43BCADB1213397BA00285AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43BCADB2213397BA00285AEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43BCADB3213397CC00285AEC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		43BCADB4213397CC00285AEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43BCADB5213397CC00285AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43BCADB6213397E600285AEC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		43BCADB7213397E600285AEC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,12 +403,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43FC5CEE2132817300709C20 /* TTNetParameterHeader.h in Headers */,
-				43FC5CEC2132816D00709C20 /* TTParseParameters.h in Headers */,
-				43154E3821324C3B002F56C2 /* TTNewsViewController.h in Headers */,
+				43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */,
+				43BCADAA213396F400285AEC /* UIView+Extension.h in Headers */,
+				43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */,
+				43BCADA8213396F400285AEC /* TTNetParameterHeader.h in Headers */,
+				43BCADAE213396F400285AEC /* TTCategory.h in Headers */,
 				43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */,
-				43FC5CF1213282D100709C20 /* TTCategory.h in Headers */,
-				43FC5CEA2132816500709C20 /* TTNetManager.h in Headers */,
+				43BCADAB213396F400285AEC /* UIColor+Hex.h in Headers */,
+				43BCADA5213396F400285AEC /* TTNetManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,10 +617,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43154E3921324C3B002F56C2 /* TTNewsViewController.m in Sources */,
-				43FC5CF2213282D100709C20 /* TTCategory.m in Sources */,
-				43FC5CED2132817000709C20 /* TTParseParameters.m in Sources */,
-				43FC5CEB2132816900709C20 /* TTNetManager.m in Sources */,
+				43BCADA6213396F400285AEC /* TTNetManager.m in Sources */,
+				43BCADA9213396F400285AEC /* UIColor+Hex.m in Sources */,
+				43BCADAD213396F400285AEC /* TTCategory.m in Sources */,
+				43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */,
+				43BCADA7213396F400285AEC /* TTParseParameters.m in Sources */,
+				43BCADB0213396F400285AEC /* TTNewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
