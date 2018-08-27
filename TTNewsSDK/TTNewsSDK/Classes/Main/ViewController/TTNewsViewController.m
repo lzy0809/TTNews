@@ -7,8 +7,7 @@
 //
 
 #import "TTNewsViewController.h"
-#import "TTNetManager.h"
-#import "TTParseParameters.h"
+#import "TTDatabaseManager.h"
 
 #import "TTCategory.h"
 
@@ -27,15 +26,13 @@
 }
 
 - (void)requestData {
-    [[TTNetManager sharedManager] GET:kChannelListURL parameters:[TTParseParameters requestDicPraiseChannleList] success:^(NSURLSessionDataTask *operation, id responseObject) {
-        for (NSDictionary *dict in responseObject[@"data"][@"data"]) {
-            TTCategory *category = [TTCategory yy_modelWithJSON:dict];
-            [self.channels addObject:category];
-        }
-        NSLog(@"请求成功:%ld",self.channels.count);
-    } failure:^(NSURLSessionDataTask *operation, NSError *error) {
-        NSLog(@"请求失败了");
-    }];
+    if ([TTDatabaseManager sharedManager].cacheChannels.count > 0) {
+        NSLog(@"数据库有值:%@",[TTDatabaseManager sharedManager].cacheChannels);
+    } else {
+        [TTDatabaseManager updateChannels:^(NSArray *channels) {
+            NSLog(@"接口返回:%@",channels);
+        }];
+    }
 }
 
 - (NSMutableArray *)channels {

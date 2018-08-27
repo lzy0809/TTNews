@@ -10,6 +10,7 @@
 
 @implementation TTParseParameters
 
+#pragma mark 获取频道列表的接口
 + (NSMutableDictionary*)requestDicPraiseChannleList {
     NSMutableDictionary *requestDict = [[NSMutableDictionary alloc]init];
     [requestDict setObject:@"6096495334" forKey:@"device_id"];

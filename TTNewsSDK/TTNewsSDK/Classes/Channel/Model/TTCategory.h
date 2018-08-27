@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <GYDataCenter/GYDataCenter.h>
+#import <GYDataCenter/GYDataCenter.h>
 
-@interface TTCategory : NSObject
+@interface TTCategory : GYModelObject
 @property (nonatomic, copy) NSString *category;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *concern_id;

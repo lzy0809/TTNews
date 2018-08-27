@@ -34,11 +34,7 @@ static const NSTimeInterval kNetManagerRequestTimeout = 10;
 }
 
 - (void)GET:(NSString *)URLString parameters:(id)parameters success:(requestSuccessBlock )success failure:(requestFailedBlock )failure {
-    NSString *methodname = [parameters objectForKey:@"Method"];             //此段代码仅供打印接口，无其他作用
-    if (methodname.length > 0) {
-        methodname = [parameters objectForKey:@"messagename"];
-    }
-    NSLog(@"接口%@:%@", methodname, URLString);
+    NSLog(@"请求接口:%@", URLString);
     
     [self.httpManager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (success) {
