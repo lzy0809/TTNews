@@ -21,18 +21,27 @@
     return sharedManager;
 }
 
++ (NSArray *)cachedTopicsWithChannelName:(NSString *)channelName {
+    return [[self sharedManager] cachedTopicsWithChannelName:channelName];
+}
+
+- (NSArray *)cachedTopicsWithChannelName:(NSString *)channelName {
+    return [TTTopic objectsWhere:@"WHERE channel = ?" arguments:@[channelName]];// SELECT * FROM topic_table WHERE channel = ?
+}
+
++ (void)clearTopicsWithChannelName:(NSString *)channelName {
+    [[self sharedManager] clearTopicsWithChannelName:channelName];
+}
+
+- (void)clearTopicsWithChannelName:(NSString *)channelName {
+    [TTTopic deleteObjectsWhere:@"WHERE channel = ?" arguments:@[channelName]];
+}
+
 - (NSArray *)cacheChannels {
     if (_cacheChannels == nil) {
         _cacheChannels = [TTCategory objectsWhere:@"" arguments:nil];
     }
     return _cacheChannels;
-}
-
-- (NSArray *)cacheTopics {
-    if (_cacheTopics == nil) {
-        _cacheTopics = [TTTopic objectsWhere:@"" arguments:nil];
-    }
-    return _cacheTopics;
 }
 
 @end

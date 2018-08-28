@@ -37,7 +37,8 @@
                        @"ban_comment",
                        @"behot_time",
                        @"bury_count",
-                       @"comment_count"
+                       @"comment_count",
+                       @"channel"
                        ];
     };
     return properties;

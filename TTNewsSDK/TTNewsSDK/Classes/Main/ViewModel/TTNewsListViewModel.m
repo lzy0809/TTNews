@@ -16,9 +16,9 @@
 @implementation TTNewsListViewModel
 
 - (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(NSArray *topics))finishedBlock {
-    if ([TTDatabaseManager sharedManager].cacheTopics.count > 0) {
-        finishedBlock([TTDatabaseManager sharedManager].cacheTopics);
-        NSLog(@"数据库有值");
+    if ([TTDatabaseManager cachedTopicsWithChannelName:channelName].count > 0) {
+        finishedBlock([TTDatabaseManager cachedTopicsWithChannelName:channelName]);
+        NSLog(@"%@频道数据库有值",channelName);
         return;
     } else {
         [[TTNetManager sharedManager] GET:kNewsFeedsURL parameters:[TTParseParameters requestDicPraiseNewsFeedWith:channelName] success:^(NSURLSessionDataTask *operation, id responseObject) {
@@ -26,12 +26,13 @@
             NSMutableArray *array = [NSMutableArray array];
             for (NSDictionary *dict in dataArray) {
                 TTTopic *topic = [TTTopic yy_modelWithJSON:dict[@"content"]];
+                topic.channel = channelName;
                 [topic save];
                 [array addObject:topic];
             }
             finishedBlock(array);
             self.topics = [array copy];
-            
+            NSLog(@"接口返回:%@频道数据:%@",channelName,array);
         } failure:^(NSURLSessionDataTask *operation, NSError *error) {
             NSLog(@"请求失败");
         }];

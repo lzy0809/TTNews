@@ -61,6 +61,7 @@
 @property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, copy) NSString *identity;
+@property (nonatomic, copy) NSString *channel;
 
 @end
 
