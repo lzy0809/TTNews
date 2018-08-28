@@ -62,17 +62,15 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TTNewsBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TTNewsBaseCell" forIndexPath:indexPath];
-    if (!cell) {
-        cell = [[TTNewsBaseCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TTNewsBaseCell"];
-    }
     TTTopic *topic = self.viewModel.topics[indexPath.row];
-    cell.textLabel.text = topic.abstract;
+    TTNewsBaseCell *cell = [TTNewsBaseCell cellWithTableView:tableView cellType:3];//topic.cell_type
+    cell.topic = topic;
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 50;
+    return 130;
 }
 
 - (UITableView *)tableView {

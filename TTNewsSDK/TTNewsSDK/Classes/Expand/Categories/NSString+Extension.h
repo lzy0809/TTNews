@@ -13,6 +13,6 @@
 - (NSString *)MD5Encode;
 
 - (CGFloat)widthWithFont:(UIFont *)font;
-
+- (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize maxNumberOfLines:(NSUInteger)numberOfLine;
 @end
 

@@ -15,6 +15,8 @@
 		43154E1A21324B76002F56C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1821324B76002F56C2 /* LaunchScreen.storyboard */; };
 		43154E1D21324B76002F56C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E1C21324B76002F56C2 /* main.m */; };
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
+		434AAB0521358CE800F2B61C /* TTSingleImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 434AAB0321358CE800F2B61C /* TTSingleImageCell.h */; };
+		434AAB0621358CE800F2B61C /* TTSingleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434AAB0421358CE800F2B61C /* TTSingleImageCell.m */; };
 		435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC83F2133A69B00EA0D3B /* NSString+Extension.h */; };
 		435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 435CC8402133A69B00EA0D3B /* NSString+Extension.m */; };
 		435CC8452133AA1400EA0D3B /* TTChannelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC8432133AA1400EA0D3B /* TTChannelView.h */; };
@@ -84,6 +86,8 @@
 		43154E1921324B76002F56C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43154E1B21324B76002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		434AAB0321358CE800F2B61C /* TTSingleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSingleImageCell.h; sourceTree = "<group>"; };
+		434AAB0421358CE800F2B61C /* TTSingleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSingleImageCell.m; sourceTree = "<group>"; };
 		435CC83F2133A69B00EA0D3B /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		435CC8402133A69B00EA0D3B /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		435CC8432133AA1400EA0D3B /* TTChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelView.h; sourceTree = "<group>"; };
@@ -480,6 +484,8 @@
 			children = (
 				4375ED5C2134F3A400B21D34 /* TTNewsBaseCell.h */,
 				4375ED5D2134F3A400B21D34 /* TTNewsBaseCell.m */,
+				434AAB0321358CE800F2B61C /* TTSingleImageCell.h */,
+				434AAB0421358CE800F2B61C /* TTSingleImageCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -519,6 +525,7 @@
 				4375ED5A2133E6FC00B21D34 /* TTPageContentView.h in Headers */,
 				43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */,
 				4375ED662134FB3D00B21D34 /* TTNewsListViewModel.h in Headers */,
+				434AAB0521358CE800F2B61C /* TTSingleImageCell.h in Headers */,
 				4375ED622134F53E00B21D34 /* TTTopic.h in Headers */,
 				4375ED5E2134F3A400B21D34 /* TTNewsBaseCell.h in Headers */,
 				43BCADBA2133990A00285AEC /* TTDatabaseManager.h in Headers */,
@@ -699,7 +706,6 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/GYDataCenter/GYDataCenter.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -708,7 +714,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GYDataCenter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -771,6 +776,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				434AAB0621358CE800F2B61C /* TTSingleImageCell.m in Sources */,
 				43BCADA6213396F400285AEC /* TTNetManager.m in Sources */,
 				4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */,
 				4375EDAB21355D5E00B21D34 /* TTRefreshHeader.m in Sources */,
