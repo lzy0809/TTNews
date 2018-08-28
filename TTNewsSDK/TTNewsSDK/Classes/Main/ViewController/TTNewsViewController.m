@@ -57,6 +57,7 @@
 - (TTPageContentView *)pageContentView {
     if (_pageContentView == nil) {
         _pageContentView = [[TTPageContentView alloc] initWithFrame:CGRectMake(0, self.channelView.bottom, self.view.width, self.view.height - self.channelView.bottom)];
+        _pageContentView.backgroundColor = [UIColor whiteColor];
         _pageContentView.delegate = self;
     }
     return _pageContentView;
