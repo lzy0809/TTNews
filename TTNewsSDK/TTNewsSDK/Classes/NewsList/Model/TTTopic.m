@@ -43,4 +43,8 @@
     return properties;
 }
 
+- (NSString *)abstract {
+    return _abstract.length == 0 ? @"接口没有返回有效数据" : _abstract;
+}
+
 @end
