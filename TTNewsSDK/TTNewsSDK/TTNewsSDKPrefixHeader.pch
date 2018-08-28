@@ -12,6 +12,7 @@
 #import <YYModel/YYModel.h>
 #import "UIView+Extension.h"
 #import "UIColor+Hex.h"
+#import "UIImage+Extension.h"
 #import "TTNetParameterHeader.h"
 #import "TTCommonDefines.h"
 

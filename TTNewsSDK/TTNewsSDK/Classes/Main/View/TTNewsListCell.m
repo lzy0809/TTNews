@@ -10,6 +10,7 @@
 #import "TTNewsBaseCell.h"
 #import "TTNewsListViewModel.h"
 #import "TTTopic.h"
+#import "TTRefreshHeader.h"
 
 @interface TTNewsListCell () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -40,6 +41,15 @@
     }];
 }
 
+#pragma mark - 加载新数据
+- (void)loadNewData {
+//    [self.tableView.mj_header endRefreshing];
+    [self.viewModel loadNewsFeedDataWithChannelName:self.channel finishedBlock:^(NSArray *topics) {
+        NSLog(@"刷新新数据了");
+    }];
+}
+
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -73,6 +83,8 @@
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
             _tableView.estimatedRowHeight = 0;
         }
+        _tableView.mj_header = [TTRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+        [_tableView.mj_header beginRefreshing];
     }
     return _tableView;
 }

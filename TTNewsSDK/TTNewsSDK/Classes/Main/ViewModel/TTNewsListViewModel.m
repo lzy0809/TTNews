@@ -26,9 +26,11 @@
             NSMutableArray *array = [NSMutableArray array];
             for (NSDictionary *dict in dataArray) {
                 TTTopic *topic = [TTTopic yy_modelWithJSON:dict[@"content"]];
-                topic.channel = channelName;
-                [topic save];
-                [array addObject:topic];
+                if (topic) {
+                    topic.channel = channelName;
+                    [topic save];
+                    [array addObject:topic];
+                }
             }
             finishedBlock(array);
             self.topics = [array copy];
