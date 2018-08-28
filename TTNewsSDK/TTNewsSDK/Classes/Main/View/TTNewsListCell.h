@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+//@class TTCategory;
 
 @interface TTNewsListCell : UICollectionViewCell
-
+@property (nonatomic, copy) NSString *channel;
 @end

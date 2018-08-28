@@ -9,9 +9,9 @@
 #ifndef TTNetParameterHeader_h
 #define TTNetParameterHeader_h
 
-
-static NSString *const kHost = @"https://is.snssdk.com";
 /** 频道列表 */
 static NSString *const kChannelListURL = @"https://is.snssdk.com/article/category/get_subscribed/v1/";
+/** 首页新闻 */
+static NSString *const kNewsFeedsURL = @"https://is.snssdk.com/api/news/feed/v75/";
 
 #endif /* TTNetParameterHeader_h */

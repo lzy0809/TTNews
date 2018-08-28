@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSArray *cacheChannels;
 
+@property (nonatomic, strong) NSArray *cacheTopics;
+
 + (instancetype)sharedManager;
 
 @end

@@ -8,6 +8,7 @@
 
 #import "TTPageContentView.h"
 #import "TTNewsListCell.h"
+#import "TTCategory.h"
 
 @interface TTPageContentView ()  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -53,6 +54,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TTNewsListCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TTNewsListCell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor colorForRandom];
+    TTCategory *channel = self.channels[indexPath.row];
+    cell.channel = channel.category;
     return cell;
 }
 #pragma mark - UICollectionViewDelegate

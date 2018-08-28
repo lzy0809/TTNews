@@ -13,7 +13,6 @@
 
 @interface TTNewsViewController () <TTChannelDelegate, TTPageContentDelegate>
 @property (nonatomic, strong) TTChannelView *channelView;
-
 @property (nonatomic, strong) TTPageContentView *pageContentView;
 @end
 

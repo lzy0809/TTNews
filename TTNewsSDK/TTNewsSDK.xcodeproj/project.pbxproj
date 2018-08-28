@@ -25,6 +25,12 @@
 		4375ED532133D7E500B21D34 /* TTNewsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED512133D7E500B21D34 /* TTNewsListCell.m */; };
 		4375ED5A2133E6FC00B21D34 /* TTPageContentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED582133E6FC00B21D34 /* TTPageContentView.h */; };
 		4375ED5B2133E6FC00B21D34 /* TTPageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED592133E6FC00B21D34 /* TTPageContentView.m */; };
+		4375ED5E2134F3A400B21D34 /* TTNewsBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED5C2134F3A400B21D34 /* TTNewsBaseCell.h */; };
+		4375ED5F2134F3A400B21D34 /* TTNewsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED5D2134F3A400B21D34 /* TTNewsBaseCell.m */; };
+		4375ED622134F53E00B21D34 /* TTTopic.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED602134F53E00B21D34 /* TTTopic.h */; };
+		4375ED632134F53E00B21D34 /* TTTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED612134F53E00B21D34 /* TTTopic.m */; };
+		4375ED662134FB3D00B21D34 /* TTNewsListViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 4375ED642134FB3D00B21D34 /* TTNewsListViewModel.h */; };
+		4375ED672134FB3D00B21D34 /* TTNewsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4375ED652134FB3D00B21D34 /* TTNewsListViewModel.m */; };
 		43B94BEB2133BF3500C1B98E /* TTChannelViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 43B94BE92133BF3500C1B98E /* TTChannelViewCell.h */; };
 		43B94BEC2133BF3500C1B98E /* TTChannelViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 43B94BEA2133BF3500C1B98E /* TTChannelViewCell.m */; };
 		43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BCAD88213396F400285AEC /* TTParseParameters.h */; };
@@ -82,6 +88,12 @@
 		4375ED512133D7E500B21D34 /* TTNewsListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsListCell.m; sourceTree = "<group>"; };
 		4375ED582133E6FC00B21D34 /* TTPageContentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTPageContentView.h; sourceTree = "<group>"; };
 		4375ED592133E6FC00B21D34 /* TTPageContentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTPageContentView.m; sourceTree = "<group>"; };
+		4375ED5C2134F3A400B21D34 /* TTNewsBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsBaseCell.h; sourceTree = "<group>"; };
+		4375ED5D2134F3A400B21D34 /* TTNewsBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsBaseCell.m; sourceTree = "<group>"; };
+		4375ED602134F53E00B21D34 /* TTTopic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTopic.h; sourceTree = "<group>"; };
+		4375ED612134F53E00B21D34 /* TTTopic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTTopic.m; sourceTree = "<group>"; };
+		4375ED642134FB3D00B21D34 /* TTNewsListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsListViewModel.h; sourceTree = "<group>"; };
+		4375ED652134FB3D00B21D34 /* TTNewsListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTNewsListViewModel.m; sourceTree = "<group>"; };
 		43B94BE92133BF3500C1B98E /* TTChannelViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelViewCell.h; sourceTree = "<group>"; };
 		43B94BEA2133BF3500C1B98E /* TTChannelViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTChannelViewCell.m; sourceTree = "<group>"; };
 		43BCAD88213396F400285AEC /* TTParseParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTParseParameters.h; sourceTree = "<group>"; };
@@ -395,6 +407,8 @@
 		43BCADB2213397BA00285AEC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				4375ED642134FB3D00B21D34 /* TTNewsListViewModel.h */,
+				4375ED652134FB3D00B21D34 /* TTNewsListViewModel.m */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -402,6 +416,8 @@
 		43BCADB3213397CC00285AEC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4375ED602134F53E00B21D34 /* TTTopic.h */,
+				4375ED612134F53E00B21D34 /* TTTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,6 +432,8 @@
 		43BCADB5213397CC00285AEC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4375ED5C2134F3A400B21D34 /* TTNewsBaseCell.h */,
+				4375ED5D2134F3A400B21D34 /* TTNewsBaseCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -453,6 +471,9 @@
 				4375ED522133D7E500B21D34 /* TTNewsListCell.h in Headers */,
 				4375ED5A2133E6FC00B21D34 /* TTPageContentView.h in Headers */,
 				43BCADA4213396F400285AEC /* TTParseParameters.h in Headers */,
+				4375ED662134FB3D00B21D34 /* TTNewsListViewModel.h in Headers */,
+				4375ED622134F53E00B21D34 /* TTTopic.h in Headers */,
+				4375ED5E2134F3A400B21D34 /* TTNewsBaseCell.h in Headers */,
 				43BCADBA2133990A00285AEC /* TTDatabaseManager.h in Headers */,
 				43BCADA8213396F400285AEC /* TTNetParameterHeader.h in Headers */,
 				435CC8452133AA1400EA0D3B /* TTChannelView.h in Headers */,
@@ -672,6 +693,7 @@
 				4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */,
 				43BCADA9213396F400285AEC /* UIColor+Hex.m in Sources */,
 				435CC8462133AA1400EA0D3B /* TTChannelView.m in Sources */,
+				4375ED632134F53E00B21D34 /* TTTopic.m in Sources */,
 				4375ED532133D7E500B21D34 /* TTNewsListCell.m in Sources */,
 				43BCADAD213396F400285AEC /* TTCategory.m in Sources */,
 				43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */,
@@ -680,7 +702,9 @@
 				43BCADBB2133990A00285AEC /* TTDatabaseManager.m in Sources */,
 				43BCADB0213396F400285AEC /* TTNewsViewController.m in Sources */,
 				43B94BEC2133BF3500C1B98E /* TTChannelViewCell.m in Sources */,
+				4375ED672134FB3D00B21D34 /* TTNewsListViewModel.m in Sources */,
 				435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */,
+				4375ED5F2134F3A400B21D34 /* TTNewsBaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

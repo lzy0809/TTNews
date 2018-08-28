@@ -23,7 +23,7 @@ static const NSTimeInterval kNetManagerRequestTimeout = 10;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedManager = [[TTNetManager alloc] init];
-        sharedManager.httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:kHost]];
+        sharedManager.httpManager = [[AFHTTPSessionManager alloc] initWithBaseURL:[NSURL URLWithString:@"https://is.snssdk.com"]];
         AFJSONResponseSerializer *jsonResponSerializer = [AFJSONResponseSerializer serializer];
         jsonResponSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/plain", @"text/javascript", @"text/html", @"application/javascript", nil];
         sharedManager.httpManager.responseSerializer = jsonResponSerializer;

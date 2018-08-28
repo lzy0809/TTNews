@@ -12,5 +12,7 @@
 
 /** 获取频道列表的接口 */
 + (NSMutableDictionary*)requestDicPraiseChannleList;
+/** 获取新闻列表的接口 */
++ (NSMutableDictionary*)requestDicPraiseNewsFeedWith:(NSString *)channel;
 
 @end

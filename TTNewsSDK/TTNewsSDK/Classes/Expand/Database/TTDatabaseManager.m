@@ -8,6 +8,7 @@
 
 #import "TTDatabaseManager.h"
 #import "TTCategory.h"
+#import "TTTopic.h"
 
 @implementation TTDatabaseManager
 
@@ -25,6 +26,13 @@
         _cacheChannels = [TTCategory objectsWhere:@"" arguments:nil];
     }
     return _cacheChannels;
+}
+
+- (NSArray *)cacheTopics {
+    if (_cacheTopics == nil) {
+        _cacheTopics = [TTTopic objectsWhere:@"" arguments:nil];
+    }
+    return _cacheTopics;
 }
 
 @end
