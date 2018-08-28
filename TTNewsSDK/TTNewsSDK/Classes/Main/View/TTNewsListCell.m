@@ -22,6 +22,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:self.tableView];
     }
     return self;
@@ -43,9 +44,11 @@
 
 #pragma mark - 加载新数据
 - (void)loadNewData {
-//    [self.tableView.mj_header endRefreshing];
+    __weak typeof(self)weakSelf = self;
     [self.viewModel loadNewsFeedDataWithChannelName:self.channel finishedBlock:^(NSArray *topics) {
-        NSLog(@"刷新新数据了");
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.tableView.mj_header endRefreshing];
+        });
     }];
 }
 
@@ -75,6 +78,7 @@
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _tableView.backgroundColor = [UIColor whiteColor];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         [_tableView registerClass:[TTNewsBaseCell class] forCellReuseIdentifier:@"TTNewsBaseCell"];
@@ -84,7 +88,7 @@
             _tableView.estimatedRowHeight = 0;
         }
         _tableView.mj_header = [TTRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-        [_tableView.mj_header beginRefreshing];
+//        [_tableView.mj_header beginRefreshing];
     }
     return _tableView;
 }

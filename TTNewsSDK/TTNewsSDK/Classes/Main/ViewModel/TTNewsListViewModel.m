@@ -32,9 +32,11 @@
                     [array addObject:topic];
                 }
             }
-            finishedBlock(array);
+            if (finishedBlock) {
+                finishedBlock(array);
+            }
             self.topics = [array copy];
-            NSLog(@"接口返回:%@频道数据:%@",channelName,array);
+            NSLog(@"%@频道返回%ld条数据",channelName,array.count);
         } failure:^(NSURLSessionDataTask *operation, NSError *error) {
             NSLog(@"请求失败");
         }];

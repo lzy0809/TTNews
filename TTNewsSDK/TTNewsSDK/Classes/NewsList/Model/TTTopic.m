@@ -7,7 +7,6 @@
 //
 
 #import "TTTopic.h"
-#import "NSString+Extension.h"
 
 @implementation TTAction
 
@@ -23,14 +22,14 @@
 }
 
 + (NSString *)primaryKey {
-    return @"identity";
+    return @"cursor";
 }
 
 + (NSArray *)persistentProperties {
     static NSArray *properties = nil;
     if (!properties) {
         properties = @[
-                       @"identity",
+                       @"cursor",
                        @"article_url",
                        @"abstract",
                        @"action_list",
@@ -42,10 +41,6 @@
                        ];
     };
     return properties;
-}
-
-- (NSString *)identity {
-    return [_article_url MD5Encode];
 }
 
 @end

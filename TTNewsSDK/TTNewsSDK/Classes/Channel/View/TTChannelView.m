@@ -39,13 +39,6 @@
     }];
 }
 
-- (void)refreshData {
-    __weak typeof(self)weakSelf = self;
-    [self.viewModel loadChannelListData:^{
-        [weakSelf.collectionView reloadData];
-    }];
-}
-
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {

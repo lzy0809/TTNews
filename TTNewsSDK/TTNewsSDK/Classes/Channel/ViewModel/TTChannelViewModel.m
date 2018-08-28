@@ -29,7 +29,9 @@ static NSString *const kCacheChannelsKey = @"kCacheChannelsKey";
             NSString *currentMD5 = [[responseObject yy_modelToJSONString] MD5Encode];
             if ([lastMD5 isEqualToString:currentMD5]) {
                 self.channels = [TTDatabaseManager sharedManager].cacheChannels;
-                finishedBlock();
+                if (finishedBlock) {
+                    finishedBlock();
+                }
                 return;
             }
             NSMutableArray *dataArray = [NSMutableArray array];
@@ -38,9 +40,11 @@ static NSString *const kCacheChannelsKey = @"kCacheChannelsKey";
                 [category save];
                 [dataArray addObject:category];
             }
-            finishedBlock();
             self.channels = [dataArray copy];
-            NSLog(@"接口返回:%@",dataArray);
+            if (finishedBlock) {
+                finishedBlock();
+            }
+            NSLog(@"接口返回%ld个频道",dataArray.count);
             [[NSUserDefaults standardUserDefaults] setObject:currentMD5 forKey:kCacheChannelsKey];
         } failure:^(NSURLSessionDataTask *operation, NSError *error) {
             NSLog(@"请求失败了");
