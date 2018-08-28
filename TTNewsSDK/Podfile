@@ -16,5 +16,5 @@ target 'TTNewsSDK' do
   pod 'YYImage'
   pod 'FMDB', '~> 2.6.2' # 必须指定版本号为2.6.2 否则导入GYDataCenter就报错
   pod 'GYDataCenter'
-
+  pod 'MJRefresh'
 end
