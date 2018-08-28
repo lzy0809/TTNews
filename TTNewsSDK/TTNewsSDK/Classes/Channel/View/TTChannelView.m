@@ -14,7 +14,7 @@
 @interface TTChannelView () <UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) TTChannelViewModel *viewModel;
-
+@property (nonatomic, assign) NSInteger currentIndex;
 @end
 
 @implementation TTChannelView
@@ -60,14 +60,21 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     TTChannelViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TTChannelViewCell" forIndexPath:indexPath];
-    cell.channel = self.viewModel.channels[indexPath.item];
+    TTCategory *channel = self.viewModel.channels[indexPath.item];
+    channel.isSelected = self.currentIndex == indexPath.item;
+    cell.channel = channel;
     return cell;
 }
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    if (self.delegate) {
-        [self.delegate channelViewDidSelectedIndex:indexPath.row];
+    if (self.currentIndex == indexPath.item) {
+        NSLog(@"点击当前选中频道，执行刷新逻辑");
+    } else {
+        self.currentIndex = indexPath.item;
+        [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        if (self.delegate) {
+            [self.delegate channelViewDidSelectedIndex:indexPath.row];
+        }
     }
 }
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -83,9 +90,12 @@
     TTChannelViewCell *targetCell = (TTChannelViewCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0]];
     [sourceCell updateColor:1 - progress];
     [targetCell updateColor:progress];
+    self.currentIndex = progress >= 0.8 ? targetIndex : sourceIndex;
+    [self.collectionView reloadData];
 }
 
 - (void)channelViewScrollToIndex:(NSInteger)index {
+    self.currentIndex = index;
     [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:index inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     [self.collectionView reloadItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]]];
 }

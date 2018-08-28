@@ -25,6 +25,7 @@
 - (void)setChannel:(TTCategory *)channel {
     _channel = channel;
     self.titleLabel.text = channel.name;
+    self.titleLabel.textColor = channel.isSelected ? [UIColor colorForHex:@"#D43D3CFF"] : [UIColor colorForHex:@"#000000FF"];
 }
 
 - (void)layoutSubviews {
@@ -33,9 +34,9 @@
 }
 
 - (void)updateColor:(CGFloat)percent {
-    CGFloat R = (0x00 * percent + 0x77 * (1 - percent)) / 255.0;
-    CGFloat G = (0x00 * percent + 0x77 * (1 - percent)) / 255.0;
-    CGFloat B = (0x00 * percent + 0x77 * (1 - percent)) / 255.0;
+    CGFloat R = (0x00 * percent + 0xd3 * (1 - percent)) / 255.0;
+    CGFloat G = (0x00 * percent + 0x3d * (1 - percent)) / 255.0;
+    CGFloat B = (0x00 * percent + 0x3c * (1 - percent)) / 255.0;
     self.titleLabel.textColor = [UIColor colorWithRed:R green:G blue:B alpha:1];
 }
 

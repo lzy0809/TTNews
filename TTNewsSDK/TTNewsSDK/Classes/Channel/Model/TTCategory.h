@@ -20,4 +20,5 @@
 @property (nonatomic, assign) NSInteger type;
 
 @property (nonatomic, assign) CGFloat textWidth;
+@property (nonatomic, assign) BOOL isSelected;
 @end
