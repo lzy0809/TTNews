@@ -11,7 +11,7 @@
 @implementation TTTool
 
 
-+ (BOOL )lastUpdateTimeWithChannelName:(NSString *)channelName withinHours:(NSInteger )hours {
++ (BOOL )lastUpdateTimeWithChannelName:(NSString *)channelName withinHours:(CGFloat )hours {
     NSDictionary *dict = [[NSUserDefaults standardUserDefaults] objectForKey:kLastUpdateTimeKey];
     NSDate *date = dict[channelName];
     if (!date) {

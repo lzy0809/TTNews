@@ -94,6 +94,7 @@
         layout.minimumInteritemSpacing = 0;
         layout.minimumLineSpacing = 0;
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
         [_collectionView registerClass:[TTNewsListCell class] forCellWithReuseIdentifier:@"TTNewsListCell"];
         _collectionView.pagingEnabled = YES;
         _collectionView.delegate = self;

@@ -43,11 +43,11 @@
 
 #pragma mark - 加载新数据
 - (void)loadNewData {
-    __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:self.channel isPullDown:YES finishedBlock:^{
-        [weakSelf.tableView.mj_header endRefreshing];
-        [weakSelf.tableView reloadData];
-    }];
+//    __weak typeof(self)weakSelf = self;
+//    [self.viewModel loadNewsFeedDataWithChannelName:self.channel isPullDown:YES finishedBlock:^{
+//        [weakSelf.tableView.mj_header endRefreshing];
+//        [weakSelf.tableView reloadData];
+//    }];
 }
 
 #pragma mark - UITableViewDataSource
@@ -68,7 +68,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 130;
+    return 87;
 }
 
 - (UITableView *)tableView {

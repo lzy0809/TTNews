@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface TTTool : NSObject
-+ (BOOL )lastUpdateTimeWithChannelName:(NSString *)channelName withinHours:(NSInteger )hours;
++ (BOOL )lastUpdateTimeWithChannelName:(NSString *)channelName withinHours:(CGFloat )hours;
 + (void)updateFetchTime:(NSString *)channelName;
 @end
