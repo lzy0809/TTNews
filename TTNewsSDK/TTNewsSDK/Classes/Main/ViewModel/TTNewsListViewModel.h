@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSArray *topics;
 
-- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(NSArray *topics))finishedBlock;
+- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(void))finishedBlock;
+
+- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock;
 
 @end

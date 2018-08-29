@@ -36,8 +36,7 @@
 - (void)setChannel:(NSString *)channel {
     _channel = channel;
     __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:channel finishedBlock:^(NSArray *topics) {
-        weakSelf.viewModel.topics = topics;
+    [self.viewModel loadNewsFeedDataWithChannelName:channel finishedBlock:^{
         [weakSelf.tableView reloadData];
     }];
 }
@@ -45,10 +44,9 @@
 #pragma mark - 加载新数据
 - (void)loadNewData {
     __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:self.channel finishedBlock:^(NSArray *topics) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [weakSelf.tableView.mj_header endRefreshing];
-        });
+    [self.viewModel loadNewsFeedDataWithChannelName:self.channel isPullDown:YES finishedBlock:^{
+        [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView reloadData];
     }];
 }
 
