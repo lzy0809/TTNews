@@ -7,30 +7,45 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GYDataCenter/GYDataCenter.h>
 
-@interface TTAction : GYModelObject
+@interface TTAction : NSObject
 @property (nonatomic, copy) NSString *action;
 @property (nonatomic, copy) NSString *desc;
 @property (nonatomic, strong) NSDictionary *extra;
 @end
 
-@interface TTFilter : GYModelObject
+@interface TTFilter : NSObject
 @property (nonatomic, copy) NSString *id;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, assign) BOOL is_selected;
 @property (nonatomic, strong) NSDictionary *extra;
 @end
 
+@interface TTURLList : NSObject
+@property (nonatomic, copy) NSString *url;
+@end
 
-@interface TTTopic : GYModelObject
+@interface TTMiddleImage : NSObject
+@property (nonatomic, assign) CGFloat height;
+@property (nonatomic, copy) NSString *uri;
+@property (nonatomic, copy) NSString *url;
+@property (nonatomic, strong) NSArray *url_list;
+@property (nonatomic, assign) CGFloat width;
+@end
+
+
+@interface TTTopic : NSObject
 @property (nonatomic, copy) NSString *abstract;
-@property (nonatomic, strong) NSArray *action_list;
+//@property (nonatomic, strong) NSArray *action_list;
 @property (nonatomic, assign) NSInteger aggr_type;
 @property (nonatomic, assign) BOOL allow_download;
 @property (nonatomic, assign) NSInteger article_sub_type;
 @property (nonatomic, assign) NSInteger article_type;
+/** 新闻详情url */
 @property (nonatomic, copy) NSString *article_url;
+@property (nonatomic, strong) TTMiddleImage *middle_image;
+@property (nonatomic, strong) NSArray *image_list;
+
 @property (nonatomic, assign) NSInteger ban_comment;
 @property (nonatomic, copy) NSString *behot_time;
 @property (nonatomic, assign) NSInteger bury_count;
@@ -42,7 +57,7 @@
 @property (nonatomic, copy) NSString *cursor;
 @property (nonatomic, assign) NSInteger digg_count;
 @property (nonatomic, copy) NSString *display_url;
-@property (nonatomic, strong) NSArray *filter_words;
+//@property (nonatomic, strong) NSArray *filter_words;
 @property (nonatomic, strong) NSDictionary *forward_info; //{forward_count : 13}
 @property (nonatomic, copy) NSString *group_id;
 @property (nonatomic, assign) BOOL has_m3u8_video;
@@ -61,6 +76,7 @@
 @property (nonatomic, copy) NSString *title;
 
 @property (nonatomic, copy) NSString *channel;
+@property (nonatomic, assign) NSNumber *rownum;
 
 @end
 

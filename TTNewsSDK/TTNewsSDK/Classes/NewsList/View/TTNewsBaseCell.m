@@ -22,8 +22,8 @@
         case TTCellTypeThreeImage:
             identifier = @"TTThreeImageCell";
             break;
-        case TTCellTypeSingleImage:
-            identifier = @"TTSingleImageCell";
+        case TTCellTypeRightPic:
+            identifier = @"TTLayOutRightPicCell";
             break;
         case TTCellTypeVideo:
             identifier = @"TTVideoCell";

@@ -7,44 +7,43 @@
 //
 
 #import "TTTopic.h"
+#import <YYModel/YYModel.h>
 
 @implementation TTAction
 
 @end
 
+@implementation TTURLList
+
+@end
+
+@implementation TTMiddleImage
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"url_list" : [TTURLList class]
+             };
+}
+
+@end
+
 @implementation TTTopic
-+ (NSString *)dbName {
-    return @"news_cache.db";
-}
-
-+ (NSString *)tableName {
-    return @"topic_table";
-}
-
-+ (NSString *)primaryKey {
-    return @"cursor";
-}
-
-+ (NSArray *)persistentProperties {
-    static NSArray *properties = nil;
-    if (!properties) {
-        properties = @[
-                       @"cursor",
-                       @"article_url",
-                       @"abstract",
-                       @"action_list",
-                       @"ban_comment",
-                       @"behot_time",
-                       @"bury_count",
-                       @"comment_count",
-                       @"channel"
-                       ];
-    };
-    return properties;
-}
 
 - (NSString *)abstract {
     return _abstract.length == 0 ? @"接口没有返回有效数据" : _abstract;
+}
+
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"image_list" : [TTMiddleImage class]
+             };
+}
+
+// 如果实现了该方法，则处理过程中会忽略该列表内的所有属性
++ (NSArray *)modelPropertyBlacklist {
+    return @[
+             @"channel",
+             @"rownum"
+             ];
 }
 
 @end

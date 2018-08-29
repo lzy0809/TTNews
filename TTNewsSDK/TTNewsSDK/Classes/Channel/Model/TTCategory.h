@@ -7,17 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <GYDataCenter/GYDataCenter.h>
 
-@interface TTCategory : GYModelObject
+@interface TTCategory : NSObject
 @property (nonatomic, copy) NSString *category;
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *concern_id;
 @property (nonatomic, copy) NSString *icon_url;
 @property (nonatomic, copy) NSString *web_url;
-@property (nonatomic, assign) NSInteger flages;
-@property (nonatomic, assign) NSInteger tip_new;
-@property (nonatomic, assign) NSInteger type;
+@property (nonatomic, strong) NSNumber *flages;
+@property (nonatomic, strong) NSNumber *tip_new;
+@property (nonatomic, strong) NSNumber *type;
 
 @property (nonatomic, assign) CGFloat textWidth;
 @property (nonatomic, assign) BOOL isSelected;

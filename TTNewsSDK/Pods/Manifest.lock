@@ -14,16 +14,16 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - FMDB (2.6.2):
-    - FMDB/standard (= 2.6.2)
-  - FMDB/standard (2.6.2)
-  - GYDataCenter (0.1.1):
-    - FMDB
+  - FMDB (2.7.2):
+    - FMDB/standard (= 2.7.2)
+  - FMDB/standard (2.7.2)
   - MJRefresh (3.1.15.6)
   - YYCache (1.0.4)
   - YYImage (1.0.4):
     - YYImage/Core (= 1.0.4)
   - YYImage/Core (1.0.4)
+  - YYImage/WebP (1.0.4):
+    - YYImage/Core
   - YYModel (1.0.4)
   - YYWebImage (1.0.5):
     - YYCache
@@ -31,22 +31,21 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
-  - FMDB (~> 2.6.2)
-  - GYDataCenter
+  - FMDB
   - MJRefresh
+  - YYImage/WebP
   - YYModel
   - YYWebImage
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  GYDataCenter: 620dc2564589f50d2370a691303e0d7215f7c0af
+  FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
   MJRefresh: 0efa19656679d70a0f47cbe76e56c2271fe53a97
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 036d45a8a4c5801775e95b6b2003e5347921e7af
+PODFILE CHECKSUM: 76068a490cb78c9f53630e4b914f58dc22b5f5a5
 
 COCOAPODS: 1.4.0

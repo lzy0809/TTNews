@@ -17,7 +17,7 @@ typedef NS_ENUM(NSUInteger, TTCellType) {
     /** 三图 */
     TTCellTypeThreeImage,
     /** 单图 */
-    TTCellTypeSingleImage,
+    TTCellTypeRightPic,
     /** 视频 */
     TTCellTypeVideo,
     /** 其他 */

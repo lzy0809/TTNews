@@ -1,5 +1,5 @@
 //
-//  TTSingleImageCell.h
+//  TTLayOutRightPicCell.h
 //  TTNewsSDK
 //
 //  Created by 梁志远 on 2018/8/28.
@@ -8,6 +8,6 @@
 
 #import "TTNewsBaseCell.h"
 
-@interface TTSingleImageCell : TTNewsBaseCell
+@interface TTLayOutRightPicCell : TTNewsBaseCell
 
 @end
