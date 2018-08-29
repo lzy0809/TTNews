@@ -15,6 +15,8 @@
 		43154E1A21324B76002F56C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43154E1821324B76002F56C2 /* LaunchScreen.storyboard */; };
 		43154E1D21324B76002F56C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E1C21324B76002F56C2 /* main.m */; };
 		43154E4021324DDC002F56C2 /* TTNewsSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43154DE2213249B5002F56C2 /* TTNewsSDK.framework */; };
+		43350E9C21363DCA007EFBD7 /* TTTool.h in Headers */ = {isa = PBXBuildFile; fileRef = 43350E9A21363DCA007EFBD7 /* TTTool.h */; };
+		43350E9D21363DCA007EFBD7 /* TTTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 43350E9B21363DCA007EFBD7 /* TTTool.m */; };
 		434AAB0521358CE800F2B61C /* TTSingleImageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 434AAB0321358CE800F2B61C /* TTSingleImageCell.h */; };
 		434AAB0621358CE800F2B61C /* TTSingleImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434AAB0421358CE800F2B61C /* TTSingleImageCell.m */; };
 		435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC83F2133A69B00EA0D3B /* NSString+Extension.h */; };
@@ -86,6 +88,8 @@
 		43154E1921324B76002F56C2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		43154E1B21324B76002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43154E1C21324B76002F56C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		43350E9A21363DCA007EFBD7 /* TTTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTool.h; sourceTree = "<group>"; };
+		43350E9B21363DCA007EFBD7 /* TTTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTTool.m; sourceTree = "<group>"; };
 		434AAB0321358CE800F2B61C /* TTSingleImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTSingleImageCell.h; sourceTree = "<group>"; };
 		434AAB0421358CE800F2B61C /* TTSingleImageCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTSingleImageCell.m; sourceTree = "<group>"; };
 		435CC83F2133A69B00EA0D3B /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
@@ -239,6 +243,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		43350E9921363DA8007EFBD7 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				43350E9A21363DCA007EFBD7 /* TTTool.h */,
+				43350E9B21363DCA007EFBD7 /* TTTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		4375ED932135540700B21D34 /* TTSDKResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,7 +274,6 @@
 				43BCAD9E213396F400285AEC /* Main */,
 				43BCADA2213396F400285AEC /* NewsList */,
 				43BCAD99213396F400285AEC /* Channel */,
-				43BCAD94213396F400285AEC /* NewsDetail */,
 				43BCAD84213396F400285AEC /* Expand */,
 			);
 			path = Classes;
@@ -270,8 +282,8 @@
 		43BCAD84213396F400285AEC /* Expand */ = {
 			isa = PBXGroup;
 			children = (
+				43350E9921363DA8007EFBD7 /* Tools */,
 				43BCAD85213396F400285AEC /* Database */,
-				43BCAD86213396F400285AEC /* Tools */,
 				43BCAD87213396F400285AEC /* Network */,
 				43BCAD8C213396F400285AEC /* Utils */,
 				43BCAD8D213396F400285AEC /* Defines */,
@@ -287,13 +299,6 @@
 				43BCADB92133990A00285AEC /* TTDatabaseManager.m */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		43BCAD86213396F400285AEC /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		43BCAD87213396F400285AEC /* Network */ = {
@@ -338,45 +343,6 @@
 				4375ED8B2135530000B21D34 /* UIImage+Extension.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		43BCAD94213396F400285AEC /* NewsDetail */ = {
-			isa = PBXGroup;
-			children = (
-				43BCAD95213396F400285AEC /* ViewModel */,
-				43BCAD96213396F400285AEC /* Model */,
-				43BCAD97213396F400285AEC /* View */,
-				43BCAD98213396F400285AEC /* ViewController */,
-			);
-			path = NewsDetail;
-			sourceTree = "<group>";
-		};
-		43BCAD95213396F400285AEC /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		43BCAD96213396F400285AEC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		43BCAD97213396F400285AEC /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		43BCAD98213396F400285AEC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		43BCAD99213396F400285AEC /* Channel */ = {
@@ -535,6 +501,7 @@
 				43BCADAE213396F400285AEC /* TTCategory.h in Headers */,
 				4375ED4E2133CBDC00B21D34 /* TTChannelViewModel.h in Headers */,
 				43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */,
+				43350E9C21363DCA007EFBD7 /* TTTool.h in Headers */,
 				43B94BEB2133BF3500C1B98E /* TTChannelViewCell.h in Headers */,
 				43BCADAB213396F400285AEC /* UIColor+Hex.h in Headers */,
 				43BCADA5213396F400285AEC /* TTNetManager.h in Headers */,
@@ -706,7 +673,10 @@
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/GYDataCenter/GYDataCenter.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
+				"${BUILT_PRODUCTS_DIR}/YYWebImage/YYWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -714,7 +684,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GYDataCenter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -777,6 +750,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434AAB0621358CE800F2B61C /* TTSingleImageCell.m in Sources */,
+				43350E9D21363DCA007EFBD7 /* TTTool.m in Sources */,
 				43BCADA6213396F400285AEC /* TTNetManager.m in Sources */,
 				4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */,
 				4375EDAB21355D5E00B21D34 /* TTRefreshHeader.m in Sources */,

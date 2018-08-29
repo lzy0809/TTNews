@@ -14,4 +14,12 @@ static NSString *const kChannelListURL = @"https://is.snssdk.com/article/categor
 /** 首页新闻 */
 static NSString *const kNewsFeedsURL = @"https://is.snssdk.com/api/news/feed/v75/";
 
+
+
+
+
+
+/** 最后更新事件的key */
+static NSString *const kLastUpdateTimeKey = @"kLastUpdateTimeKey";
+
 #endif /* TTNetParameterHeader_h */

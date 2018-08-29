@@ -18,4 +18,6 @@
 
 #define TTWeakSelf                          __weak typeof(self)weakSelf = self;
 
+
+
 #endif /* TTCommonDefines_h */

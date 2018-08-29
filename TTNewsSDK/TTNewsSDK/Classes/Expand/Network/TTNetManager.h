@@ -26,4 +26,6 @@ typedef void(^requestFailedBlock)(NSURLSessionDataTask *operation, NSError *erro
 
 - (void)POST:(NSString *)URLString parameters:(id)parameters success:(requestSuccessBlock )success failure:(requestFailedBlock )failure;
 
++ (BOOL)checkNetCanUse;
+
 @end
