@@ -72,12 +72,15 @@
     TTTopic *topic = self.viewModel.topics[indexPath.row];
     TTNewsBaseCell *cell = [TTNewsBaseCell cellWithTableView:tableView topic:topic];
     cell.topic = topic;
-    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 87;
+//    TTTopic *topic = self.viewModel.topics[indexPath.row];
+//    TTNewsBaseCell *cell = [TTNewsBaseCell cellWithTableView:tableView topic:topic];
+//    cell.topic = topic;
+//    NSLog(@"======%.2f",cell.cellH);
+    return 150;
 }
 
 - (UITableView *)tableView {

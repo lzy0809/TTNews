@@ -18,6 +18,9 @@
 
 #define TTWeakSelf                          __weak typeof(self)weakSelf = self;
 
-
+#define kMargin                15
+#define kLineHeight 1 / [UIScreen mainScreen].scale
+#define kImageW  (ScreenWidth - kMargin * 2 - 3 * 2) / 3
+#define kImageH   kImageW / 1.54
 
 #endif /* TTCommonDefines_h */

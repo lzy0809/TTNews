@@ -14,5 +14,10 @@
 
 - (CGFloat)widthWithFont:(UIFont *)font;
 - (CGSize)sizeWithFont:(UIFont *)font maxSize:(CGSize)maxSize maxNumberOfLines:(NSUInteger)numberOfLine;
+
+- (CGSize)sizeWithConstrainedWidth:(CGFloat)width font:(UIFont *)font lineSpace:(CGFloat)lineSpace;
+- (CGSize)sizeWithConstrainedSize:(CGSize)size font:(UIFont *)font1 lineSpace:(CGFloat)lineSpace;
+- (void)drawInContext:(CGContextRef)context position:(CGPoint)p font:(UIFont *)font textColor:(UIColor *)color height:(CGFloat)height;
+- (void)drawInContext:(CGContextRef)context position:(CGPoint)p font:(UIFont *)font textColor:(UIColor *)color height:(CGFloat)height width:(CGFloat)width;
 @end
 

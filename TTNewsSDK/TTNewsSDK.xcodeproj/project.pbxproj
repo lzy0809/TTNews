@@ -19,6 +19,10 @@
 		43350E9D21363DCA007EFBD7 /* TTTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 43350E9B21363DCA007EFBD7 /* TTTool.m */; };
 		434AAB0521358CE800F2B61C /* TTLayOutRightPicCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 434AAB0321358CE800F2B61C /* TTLayOutRightPicCell.h */; };
 		434AAB0621358CE800F2B61C /* TTLayOutRightPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434AAB0421358CE800F2B61C /* TTLayOutRightPicCell.m */; };
+		434B21492137D17B00F43FB9 /* TTLayOutPureTitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 434B21472137D17B00F43FB9 /* TTLayOutPureTitleCell.h */; };
+		434B214A2137D17B00F43FB9 /* TTLayOutPureTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434B21482137D17B00F43FB9 /* TTLayOutPureTitleCell.m */; };
+		434B214D2137D19600F43FB9 /* TTLayOutGroupPicCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 434B214B2137D19600F43FB9 /* TTLayOutGroupPicCell.h */; };
+		434B214E2137D19600F43FB9 /* TTLayOutGroupPicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 434B214C2137D19600F43FB9 /* TTLayOutGroupPicCell.m */; };
 		435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC83F2133A69B00EA0D3B /* NSString+Extension.h */; };
 		435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 435CC8402133A69B00EA0D3B /* NSString+Extension.m */; };
 		435CC8452133AA1400EA0D3B /* TTChannelView.h in Headers */ = {isa = PBXBuildFile; fileRef = 435CC8432133AA1400EA0D3B /* TTChannelView.h */; };
@@ -92,6 +96,10 @@
 		43350E9B21363DCA007EFBD7 /* TTTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTTool.m; sourceTree = "<group>"; };
 		434AAB0321358CE800F2B61C /* TTLayOutRightPicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLayOutRightPicCell.h; sourceTree = "<group>"; };
 		434AAB0421358CE800F2B61C /* TTLayOutRightPicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLayOutRightPicCell.m; sourceTree = "<group>"; };
+		434B21472137D17B00F43FB9 /* TTLayOutPureTitleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLayOutPureTitleCell.h; sourceTree = "<group>"; };
+		434B21482137D17B00F43FB9 /* TTLayOutPureTitleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLayOutPureTitleCell.m; sourceTree = "<group>"; };
+		434B214B2137D19600F43FB9 /* TTLayOutGroupPicCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLayOutGroupPicCell.h; sourceTree = "<group>"; };
+		434B214C2137D19600F43FB9 /* TTLayOutGroupPicCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTLayOutGroupPicCell.m; sourceTree = "<group>"; };
 		435CC83F2133A69B00EA0D3B /* NSString+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		435CC8402133A69B00EA0D3B /* NSString+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		435CC8432133AA1400EA0D3B /* TTChannelView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTChannelView.h; sourceTree = "<group>"; };
@@ -450,8 +458,12 @@
 			children = (
 				4375ED5C2134F3A400B21D34 /* TTNewsBaseCell.h */,
 				4375ED5D2134F3A400B21D34 /* TTNewsBaseCell.m */,
+				434B21472137D17B00F43FB9 /* TTLayOutPureTitleCell.h */,
+				434B21482137D17B00F43FB9 /* TTLayOutPureTitleCell.m */,
 				434AAB0321358CE800F2B61C /* TTLayOutRightPicCell.h */,
 				434AAB0421358CE800F2B61C /* TTLayOutRightPicCell.m */,
+				434B214B2137D19600F43FB9 /* TTLayOutGroupPicCell.h */,
+				434B214C2137D19600F43FB9 /* TTLayOutGroupPicCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +514,8 @@
 				4375ED4E2133CBDC00B21D34 /* TTChannelViewModel.h in Headers */,
 				43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */,
 				43350E9C21363DCA007EFBD7 /* TTTool.h in Headers */,
+				434B214D2137D19600F43FB9 /* TTLayOutGroupPicCell.h in Headers */,
+				434B21492137D17B00F43FB9 /* TTLayOutPureTitleCell.h in Headers */,
 				43B94BEB2133BF3500C1B98E /* TTChannelViewCell.h in Headers */,
 				43BCADAB213396F400285AEC /* UIColor+Hex.h in Headers */,
 				43BCADA5213396F400285AEC /* TTNetManager.h in Headers */,
@@ -748,6 +762,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				434AAB0621358CE800F2B61C /* TTLayOutRightPicCell.m in Sources */,
+				434B214A2137D17B00F43FB9 /* TTLayOutPureTitleCell.m in Sources */,
 				43350E9D21363DCA007EFBD7 /* TTTool.m in Sources */,
 				43BCADA6213396F400285AEC /* TTNetManager.m in Sources */,
 				4375ED4F2133CBDC00B21D34 /* TTChannelViewModel.m in Sources */,
@@ -766,6 +781,7 @@
 				4375ED672134FB3D00B21D34 /* TTNewsListViewModel.m in Sources */,
 				4375ED8D2135530000B21D34 /* UIImage+Extension.m in Sources */,
 				435CC8422133A69B00EA0D3B /* NSString+Extension.m in Sources */,
+				434B214E2137D19600F43FB9 /* TTLayOutGroupPicCell.m in Sources */,
 				4375ED5F2134F3A400B21D34 /* TTNewsBaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

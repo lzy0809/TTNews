@@ -16,7 +16,7 @@
 @property (nonatomic, assign) CGFloat height;
 @property (nonatomic, copy) NSString *uri;
 @property (nonatomic, copy) NSString *url;
-@property (nonatomic, strong) NSArray *url_list;
+@property (nonatomic, strong) NSArray <TTURLList *> *url_list;
 @property (nonatomic, assign) CGFloat width;
 @end
 
@@ -46,7 +46,9 @@
 
 @property (nonatomic, copy) NSString *channel;
 @property (nonatomic, strong) NSNumber *rownum;
-
+@property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, assign) CGRect frame;
+@property (nonatomic, copy) NSString *pic_url;
 @end
 
 @interface TTTopicTip : NSObject
