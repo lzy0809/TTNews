@@ -18,10 +18,11 @@ static NSString *const insert_channel_sql = @"INSERT INTO t_category(concern_id,
 /** 根据index排序 */
 static NSString *const order_by_index_channel_sql = @"SELECT * FROM t_category";
 
-/** 创建 t_category 表 */
-static NSString *const create_t_topic_sql = @"CREATE TABLE IF NOT EXISTS t_topic(channel TEXT, abstract TEXT, middle_image TEXT, romnum INTEGER)";
+
+/** 创建 t_topic 表 */
+static NSString *const create_t_topic_sql = @"CREATE TABLE IF NOT EXISTS t_topic(channel TEXT, abstract TEXT, middle_image TEXT, media_name TEXT, source TEXT, title TEXT, url TEXT, video_style INTEGER, has_video INTEGER, rownum INTEGER)";
 /** 缓存 topic 数据 */
-static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstract, middle_image, romnum) VALUES(?, ?, ?, ?)";
+static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstract, middle_image, media_name, source, title, url, video_style, has_video, rownum) VALUES(?,?,?,?,?,?,?,?,?,?)";
 
 
 
@@ -79,7 +80,7 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
     [self.dbQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         for (NSInteger i = 0; i < topics.count; i++) {
             TTTopic *topic = topics[i];
-            [db executeUpdate:insert_topic_sql, topic.channel, topic.abstract, [topic.middle_image yy_modelToJSONString], @(i)];
+            [db executeUpdate:insert_topic_sql, topic.channel, topic.abstract, [topic.middle_image yy_modelToJSONString], topic.media_name, topic.source, topic.title, topic.url, topic.video_style, topic.has_video, @(i)];
         }
     }];
 }
@@ -93,7 +94,13 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
             topic.channel = channelName;
             topic.abstract = [rs stringForColumn:@"abstract"];
             topic.middle_image = [TTMiddleImage yy_modelWithJSON:[[rs stringForColumn:@"middle_image"] yy_modelToJSONObject]];
-//            topic.rownum = @([rs intForColumn:@"rownum"]);
+            topic.media_name = [rs stringForColumn:@"media_name"];
+            topic.source = [rs stringForColumn:@"source"];
+            topic.title = [rs stringForColumn:@"title"];
+            topic.url = [rs stringForColumn:@"url"];
+            topic.video_style = @([rs intForColumn:@"video_style"]);
+            topic.has_video = @([rs intForColumn:@"has_video"]);
+            topic.rownum = @([rs intForColumn:@"rownum"]);
             [array addObject:topic];
         }
         [rs close];

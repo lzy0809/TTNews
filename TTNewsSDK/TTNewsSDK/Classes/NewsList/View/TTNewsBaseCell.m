@@ -7,39 +7,26 @@
 //
 
 #import "TTNewsBaseCell.h"
+#import "TTTopic.h"
 
 @implementation TTNewsBaseCell
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView cellType:(TTCellType )cellType {
-    NSString *identifier = @"TTNewsBaseCell";
-    switch (cellType) {
-        case TTCellTypeText:
-            identifier = @"TTTextCell";
-            break;
-        case TTCellTypeBigImage:
-            identifier = @"TTBigImageCell";
-            break;
-        case TTCellTypeThreeImage:
-            identifier = @"TTThreeImageCell";
-            break;
-        case TTCellTypeRightPic:
-            identifier = @"TTLayOutRightPicCell";
-            break;
-        case TTCellTypeVideo:
-            identifier = @"TTVideoCell";
-            break;
-        default:
-            
-            break;
-    }
-    
-//    NSLog(@"cell type is %ld",cellType);
++ (instancetype)cellWithTableView:(UITableView *)tableView topic:(TTTopic *)topic {
+    NSString *identifier = [self cellIdentifier:topic];
     TTNewsBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (cell == nil) {
         cell = [[NSClassFromString(identifier) alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
     }
-    
     return cell;
+}
+
++ (NSString *)cellIdentifier:(TTTopic *)topic {
+    NSString *identifier = @"TTNewsBaseCell";
+    if (topic.middle_image.url_list.count > 0) {
+        identifier = @"TTLayOutGroupPicCell";
+    }
+    identifier = @"TTLayOutRightPicCell";
+    return identifier;
 }
 
 - (void)setTopic:(TTTopic *)topic {

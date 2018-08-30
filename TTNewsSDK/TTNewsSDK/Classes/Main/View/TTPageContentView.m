@@ -38,7 +38,7 @@
 #pragma mark - Public Method
 - (void)scrollToTargetIndex:(NSInteger)targetIndex {
     
-    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:targetIndex inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:NO];
     self.currentIndex = targetIndex;
 }
 
@@ -80,10 +80,10 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     NSInteger index = scrollView.contentOffset.x / scrollView.width;
     if (index != self.currentIndex) {
-        self.currentIndex = index;
         if (self.delegate) {
             [self.delegate scrollToIndex:index];
         }
+        self.currentIndex = index;
     }
 }
 

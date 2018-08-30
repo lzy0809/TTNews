@@ -62,11 +62,17 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.currentIndex == indexPath.item) {
         NSLog(@"点击当前选中频道，执行刷新逻辑");
+        UICollectionViewCell *cell = [self collectionView:collectionView cellForItemAtIndexPath:indexPath];
+        cell.userInteractionEnabled = NO;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            cell.userInteractionEnabled = YES;
+        });
+        
     } else {
         self.currentIndex = indexPath.item;
         [collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
         if (self.delegate) {
-            [self.delegate channelViewDidSelectedIndex:indexPath.row];
+            [self.delegate channelViewDidSelectedIndex:indexPath.item];
         }
     }
 }

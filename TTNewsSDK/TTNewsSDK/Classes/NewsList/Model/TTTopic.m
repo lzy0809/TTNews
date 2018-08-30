@@ -9,9 +9,6 @@
 #import "TTTopic.h"
 #import <YYModel/YYModel.h>
 
-@implementation TTAction
-
-@end
 
 @implementation TTURLList
 
@@ -19,9 +16,15 @@
 
 @implementation TTMiddleImage
 + (NSDictionary *)modelContainerPropertyGenericClass {
-    return @{
-             @"url_list" : [TTURLList class]
-             };
+    return @{ @"url_list" : [TTURLList class] };
+}
+@end
+
+@implementation TTTopicFilter
+
+//返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"filterID" : @"id"};
 }
 
 @end
@@ -46,4 +49,18 @@
              ];
 }
 
+@end
+
+
+@implementation TTTopicTip
+
+@end
+
+@implementation TTTopicNode
++ (NSDictionary *)modelContainerPropertyGenericClass {
+    return @{
+             @"data" : [TTTopic class],
+             @"tips" : [TTTopicTip class]
+             };
+}
 @end

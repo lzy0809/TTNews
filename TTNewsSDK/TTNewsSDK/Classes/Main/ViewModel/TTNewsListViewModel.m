@@ -16,7 +16,7 @@
 @implementation TTNewsListViewModel
 
 - (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(void))finishedBlock {
-    [self fetchNewsFeed:channelName isForce:YES isPullDown:YES finishedBlock:finishedBlock];
+    [self fetchNewsFeed:channelName isForce:NO isPullDown:YES finishedBlock:finishedBlock];
 }
 
 - (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock {
@@ -33,11 +33,12 @@
         return;
     }
     
-    if (isForce && [TTTool lastUpdateTimeWithChannelName:channel withinHours:0.5]) { // 距上次请求没有超过两个小时
+    if (!isForce && [TTTool lastUpdateTimeWithChannelName:channel withinHours:0.5]) { // 距上次请求没有超过两个小时
         finishedBlock();
         return;
     }
     __weak typeof(self)weakSelf = self;
+    NSLog(@"被%@频道调用了",channel);
     [[TTNetManager sharedManager] GET:kNewsFeedsURL parameters:[TTParseParameters requestDicPraiseNewsFeedWith:channel] success:^(NSURLSessionDataTask *operation, id responseObject) {
         NSArray *dataArray = responseObject[@"data"];
         NSMutableArray *array = [NSMutableArray arrayWithArray:weakSelf.topics];

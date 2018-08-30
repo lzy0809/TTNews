@@ -45,7 +45,7 @@ static CGFloat const kMargin = 15;  //边距
 - (void)setTopic:(TTTopic *)topic {
     [super setTopic:topic];
     
-    self.titleLabel.text = topic.abstract;
+    self.titleLabel.text = topic.title;
     
     [self.rightImageView yy_setImageWithURL:[NSURL URLWithString:@"http://p3.pstatp.com/list/300x196/pgc-image/ede2003ab4864c30a33194a98cea6f03.webp"] placeholder:nil];
 }
