@@ -35,26 +35,17 @@
 
 - (void)setChannel:(NSString *)channel {
     _channel = channel;
-    
-    if ([self.tableView.mj_header isRefreshing] || self.tableView.mj_header.hidden) {
-        return;
-    }
-    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(refreshData) object:nil];
-    [self performSelector:@selector(refreshData) withObject:nil afterDelay:0.3];
-}
-
-- (void)refreshData {
-    if ([self.tableView numberOfRowsInSection:0] > 0) {
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
-    }
-    [self.tableView.mj_header beginRefreshing];
+    __weak typeof(self)weakSelf = self;
+    [self.viewModel loadNewsFeedDataWithChannelName:channel finishedBlock:^{
+        [weakSelf.tableView reloadData];
+    }];
 }
 
 #pragma mark - 加载新数据
 - (void)loadNewData {
     __weak typeof(self)weakSelf = self;
     [self.viewModel loadNewsFeedDataWithChannelName:self.channel isPullDown:YES finishedBlock:^{
-        [weakSelf.tableView.mj_header endRefreshing];
+//        [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView reloadData];
     }];
 }
@@ -76,11 +67,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    TTTopic *topic = self.viewModel.topics[indexPath.row];
-//    TTNewsBaseCell *cell = [TTNewsBaseCell cellWithTableView:tableView topic:topic];
-//    cell.topic = topic;
-//    NSLog(@"======%.2f",cell.cellH);
-    return 150;
+    TTTopic *topic = self.viewModel.topics[indexPath.row];
+    NSLog(@"======%.2f",topic.cellHeight);
+    return topic.cellHeight;
 }
 
 - (UITableView *)tableView {

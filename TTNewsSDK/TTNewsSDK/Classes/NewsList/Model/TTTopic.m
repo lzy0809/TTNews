@@ -62,56 +62,35 @@
 }
 
 - (CGFloat)cellHeight {
-//    if ([topic.has_video boolValue]) {
-//        if ([topic.video_style integerValue] == 0) {
-//            identifier = @"TTLayOutRightPicCell";
-//        }
-//        else if ([topic.video_style integerValue] == 2) {
-//            identifier = @"TTArticlePicView";
-//        }
-//    } else {
-//        if (topic.middle_image.url.length == 0 && topic.middle_image.url_list.count == 0) {
-//            identifier = @"TTLayOutPureTitleCell";
-//        } else {
-//            if (topic.middle_image.url.length > 0 && topic.middle_image.url_list.count == 0) {
-//                identifier = @"TTLayOutRightPicCell";
-//            } else {
-//                if (topic.middle_image.url_list.count == 1) {
-//                    identifier = @"TTLayOutRightPicCell";
-//                } else {
-//                    identifier = @"TTLayOutGroupPicCell";
-//                }
-//            }
-//        }
-//    }
-//    CGFloat H = 0;
-//    if ([_has_video boolValue]) {
-//        if ([_video_style integerValue] == 0) {
-//
-//            CGFloat titleW = ScreenWidth - kMargin - kImageW - kMargin + 16;
-//            CGFloat titleH = [_title sizeWithFont:[UIFont systemFontOfSize:17] maxSize:CGSizeMake(titleW, MAXFLOAT) maxNumberOfLines:3].height;
-//            self.titleLabel.frame = CGRectMake(kMargin, 14, titleW, titleH);
-//            H = 14 + kImageH;
-//        }
-//        else if ([_video_style integerValue] == 2) {
-//            return 100;
-//        }
-//    } else {
-//        if (_middle_image.url.length == 0 && _middle_image.url_list.count == 0) {
-//            return 87;
-//        } else {
-//            if (_middle_image.url.length > 0 && _middle_image.url_list.count == 0) {
-//                return 90;
-//            } else {
-//                if (_middle_image.url_list.count == 1) {
-//                    return 90;
-//                } else {
-//                    return 140;
-//                }
-//            }
-//        }
-//    }
-    return 50;
+    if (_cellHeight == 0) {
+        CGFloat H = 0;
+        if ([_has_video boolValue]) {
+            if ([_video_style integerValue] == 0) { //单图
+                H = 14 + kImageH + 14 + kLineHeight;
+            }
+            else {// [_video_style integerValue] == 2 大图
+                return 40;
+            }
+        } else {
+            if (_middle_image.url.length == 0 && _middle_image.url_list.count == 0) {
+                CGFloat titleH = [_title sizeWithConstrainedWidth:ScreenWidth - kMargin - kImageW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
+                H = 14 + titleH + 14 + kLineHeight;
+            } else {
+                if (_middle_image.url.length > 0 && _middle_image.url_list.count == 0) {
+                    H = 14 + kImageH + 14 + kLineHeight;
+                } else {
+                    if (_middle_image.url_list.count == 1) {
+                        H = 14 + kImageH + 14 + kLineHeight;
+                    } else {
+                        CGFloat titleH = [_title sizeWithConstrainedWidth:ScreenWidth - kMargin - kImageW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
+                        H = 14 + titleH + 14 + kImageH + 14 + kLineHeight;
+                    }
+                }
+            }
+        }
+        _cellHeight = ceil(H);
+    }
+    return _cellHeight;
 }
 
 

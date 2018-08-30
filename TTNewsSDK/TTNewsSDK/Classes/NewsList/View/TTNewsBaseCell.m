@@ -8,7 +8,7 @@
 
 #import "TTNewsBaseCell.h"
 #import "TTTopic.h"
-#import <YYWebImage/YYWebImage.h>
+//#import <YYWebImage/YYWebImage.h>
 #import "NSString+Extension.h"
 
 @interface TTNewsBaseCell ()
@@ -21,13 +21,13 @@
 - (void)setTopic:(TTTopic *)topic {
     _topic = topic;
     
-    if (self.isDrawing) {
-        return;
-    }
-    self.isDrawing = YES;
+//    if (self.isDrawing) {
+//        return;
+//    }
+//    self.isDrawing = YES;
     TTWeakSelf
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CGRect rect = CGRectMake(0, 0, ScreenWidth, 150);
+        CGRect rect = CGRectMake(0, 0, ScreenWidth, weakSelf.topic.cellHeight);
         UIGraphicsBeginImageContextWithOptions(rect.size, YES, [UIScreen mainScreen].scale);
         CGContextRef context = UIGraphicsGetCurrentContext();
         [[UIColor colorForHex:@"#ffffff"] set];
@@ -55,16 +55,28 @@
                 }
             }
         }
-        
         UIImage *temp = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.BGView.frame = rect;
             weakSelf.BGView.image = temp;
-            weakSelf.cellH = CGRectGetMaxY(rect);
+            [weakSelf setNeedsDisplay];
         });
         
     });
+    
+    
+    if (![topic.has_video boolValue] && topic.middle_image.url_list.count > 1) {
+        CGFloat titleW = ScreenWidth - kMargin * 2;
+        CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
+        for (NSInteger i = 0; i < 3; i++) {
+            UIImageView *imageView = [[UIImageView alloc] init];
+            imageView.backgroundColor = [UIColor orangeColor];
+            imageView.frame = CGRectMake(kMargin + kImageW*i + 3*i, 14 + titleH + 14, kImageW, kImageH);
+            [self.contentView addSubview:imageView];
+        }
+    }
+    
 }
 
 - (void)clear {
@@ -80,31 +92,31 @@
     CGFloat titleW = ScreenWidth - kMargin * 2;
     CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
     [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
+    
+    [[UIColor colorForHex:@"#D3D3D3"] set];
+    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
 }
 
 - (void)drawRightPicWithContext:(CGContextRef)context topic:(TTTopic *)topic {
-    CGFloat imgX = self.width - kMargin - kImageW;
+    CGFloat imgX = ScreenWidth - kMargin - kImageW;
     CGFloat titleW = imgX - kMargin - 16;
     CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
     [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
     
     [[UIColor orangeColor] set];
     CGContextFillRect(context, CGRectMake(imgX, 14, kImageW, kImageH));
+    
+    [[UIColor colorForHex:@"#D3D3D3"] set];
+    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
 }
 
 - (void)drawGroupPicWithContext:(CGContextRef)context topic:(TTTopic *)topic {
-    CGFloat titleW = self.width - kMargin * 2;
+    CGFloat titleW = ScreenWidth - kMargin * 2;
     CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
     [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
-    CGFloat imgY = 14 + titleH + 7;
-    [[UIColor orangeColor] set];
-    CGContextFillRect(context, CGRectMake(kMargin, imgY, kImageW, kImageH));
     
-    [[UIColor orangeColor] set];
-    CGContextFillRect(context, CGRectMake(kMargin+kImageW+3, imgY, kImageW, kImageH));
-    
-    [[UIColor orangeColor] set];
-    CGContextFillRect(context, CGRectMake(kMargin+kImageW*2+6, imgY, kImageW, kImageH));
+    [[UIColor colorForHex:@"#D3D3D3"] set];
+    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
 }
 
 
@@ -148,7 +160,7 @@
             }
         }
     }
-    //    NSLog(@"cell========%@",identifier);
+        NSLog(@"cell========%@",identifier);
     return @"TTNewsBaseCell";
 }
 
