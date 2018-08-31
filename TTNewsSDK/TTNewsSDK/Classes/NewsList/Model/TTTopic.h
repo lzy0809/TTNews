@@ -8,6 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+typedef NS_ENUM(NSInteger, TTCellType){
+    /** 纯文本 */
+    TTCellTypePureTitle = 0,
+    /** 右边有图 */
+    TTCellTypeRightPic = 1,
+    /** 多图 */
+    TTCellTypeGroupPic = 2,
+    /** 大图 */
+    TTCellTypeArticlePic = 3,
+    /** 其他 */
+    TTCellTypeOther = 4,
+};
+
+
 @interface TTURLList : NSObject
 @property (nonatomic, copy) NSString *url;
 @end
@@ -49,6 +63,7 @@
 @property (nonatomic, assign) CGFloat cellHeight;
 @property (nonatomic, assign) CGRect frame;
 @property (nonatomic, copy) NSString *pic_url;
+@property (nonatomic, assign) TTCellType draw_type;
 @end
 
 @interface TTTopicTip : NSObject

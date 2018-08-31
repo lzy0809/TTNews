@@ -25,7 +25,7 @@
 
 + (void)saveChannels:(NSArray *)channels;
 
-+ (void)saveTopics:(NSArray *)topics;
++ (void)saveTopics:(NSArray *)topics channelName:(NSString *)channel;
 
 @end
 

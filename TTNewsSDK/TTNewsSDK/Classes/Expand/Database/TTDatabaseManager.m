@@ -20,9 +20,9 @@ static NSString *const order_by_index_channel_sql = @"SELECT * FROM t_category";
 
 
 /** 创建 t_topic 表 */
-static NSString *const create_t_topic_sql = @"CREATE TABLE IF NOT EXISTS t_topic(channel TEXT, abstract TEXT, middle_image TEXT, media_name TEXT, source TEXT, title TEXT, url TEXT, video_style INTEGER, has_video INTEGER, rownum INTEGER)";
+static NSString *const create_t_topic_sql = @"CREATE TABLE IF NOT EXISTS t_topic(channel TEXT, abstract TEXT, middle_image TEXT, media_name TEXT, source TEXT, title TEXT, url TEXT, video_style INTEGER, has_video INTEGER, rownum INTEGER, pic_url TEXT)";
 /** 缓存 topic 数据 */
-static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstract, middle_image, media_name, source, title, url, video_style, has_video, rownum) VALUES(?,?,?,?,?,?,?,?,?,?)";
+static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstract, middle_image, media_name, source, title, url, video_style, has_video, rownum, pic_url) VALUES(?,?,?,?,?,?,?,?,?,?,?)";
 
 
 
@@ -39,31 +39,65 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
         sharedManager = [[self alloc] init];
         NSString *cachePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
         NSString *fileName = [cachePath stringByAppendingPathComponent:@"news_cache.db"];
-//        NSLog(@"数据库路径:%@",fileName);
+        NSLog(@"数据库路径:%@",fileName);
         sharedManager.dbQueue = [FMDatabaseQueue databaseQueueWithPath:fileName];
-        [sharedManager createChannelCacheTable];
-        [sharedManager createTopicCacheTable];
+        [sharedManager initDatabaseTables];
     });
     return sharedManager;
 }
 
-- (void)createChannelCacheTable {
+- (void)initDatabaseTables {
+    
+    // 建表 t_category
     [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
-        BOOL success = [db executeUpdate:create_t_category_sql];
-        if (!success) {
+        BOOL channel_success = [db executeUpdate:create_t_category_sql];
+        if (!channel_success) {
             NSLog(@"TTDatabaseManager: createTable t_category error!");
         }
+        
+        BOOL topic_success = [db executeUpdate:create_t_topic_sql];
+        if (!topic_success) {
+            NSLog(@"TTDatabaseManager: createTable t_topic error!");
+        }
+        
+        if (![db columnExists:@"pic_url" inTableWithName:@"t_topic"]) {
+            [db executeUpdate:@"ALTER TABLE t_topic ADD COLUM pic_url TEXT"];
+        }
+        
     }];
 }
 
-- (void)createTopicCacheTable {
+- (BOOL )updateDBFrom0To1 {
+    __block BOOL channel_success;
+    __block BOOL topic_success;
+    
+    // 建表 t_category
     [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
-        BOOL success = [db executeUpdate:create_t_topic_sql];
-        if (!success) {
-            NSLog(@"TTDatabaseManager: createTable t_channel error!");
+        channel_success = [db executeUpdate:create_t_category_sql];
+        if (!channel_success) {
+            NSLog(@"TTDatabaseManager: createTable t_category error!");
         }
     }];
+    // 建表 t_topic
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        topic_success = [db executeUpdate:create_t_topic_sql];
+        if (!channel_success) {
+            NSLog(@"TTDatabaseManager: createTable t_topic error!");
+        }
+    }];
+    return channel_success && topic_success;
 }
+
+- (BOOL )updateDBFrom1To2 {
+    __block BOOL success;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        if (![db columnExists:@"pic_url" inTableWithName:@"t_topic"]) {
+            success = [db executeUpdate:@"ALTER TABLE t_topic ADD COLUM pic_url TEXT"];
+        }
+    }];
+    return success;
+}
+
 
 #pragma mark - 核心方法
 - (void)saveChannels:(NSArray *)channels {
@@ -76,11 +110,12 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
     }];
 }
 
-- (void)saveTopics:(NSArray *)topics {
+- (void)saveTopics:(NSArray *)topics channelName:(NSString *)channel {
+    __block NSInteger rownum = [self countOfCacheTopics:channel];
     [self.dbQueue inTransaction:^(FMDatabase * _Nonnull db, BOOL * _Nonnull rollback) {
         for (NSInteger i = 0; i < topics.count; i++) {
             TTTopic *topic = topics[i];
-            [db executeUpdate:insert_topic_sql, topic.channel, topic.abstract, [topic.middle_image yy_modelToJSONString], topic.media_name, topic.source, topic.title, topic.url, topic.video_style, topic.has_video, @(i)];
+            [db executeUpdate:insert_topic_sql, topic.channel, topic.abstract, [topic.middle_image yy_modelToJSONString], topic.media_name, topic.source, topic.title, topic.url, topic.video_style, topic.has_video, @(rownum++), topic.pic_url];
         }
     }];
 }
@@ -93,7 +128,7 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
             TTTopic *topic = [[TTTopic alloc] init];
             topic.channel = channelName;
             topic.abstract = [rs stringForColumn:@"abstract"];
-            topic.middle_image = [TTMiddleImage yy_modelWithJSON:[[rs stringForColumn:@"middle_image"] yy_modelToJSONObject]];
+            topic.middle_image = [TTMiddleImage yy_modelWithJSON:[rs stringForColumn:@"middle_image"]];
             topic.media_name = [rs stringForColumn:@"media_name"];
             topic.source = [rs stringForColumn:@"source"];
             topic.title = [rs stringForColumn:@"title"];
@@ -101,11 +136,24 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
             topic.video_style = @([rs intForColumn:@"video_style"]);
             topic.has_video = @([rs intForColumn:@"has_video"]);
             topic.rownum = @([rs intForColumn:@"rownum"]);
+            topic.pic_url = [rs stringForColumn:@"pic_url"];
             [array addObject:topic];
         }
         [rs close];
     }];
-    return array;
+    return [array copy];
+}
+
+- (NSInteger )countOfCacheTopics:(NSString *)channel {
+    __block NSUInteger count = 0;
+    [self.dbQueue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *rs = [db executeQuery:@"SELECT count(*) FROM t_topic WHERE channel = ?", channel];
+        while ([rs next]) {
+            count = [rs intForColumnIndex:0];
+        }
+        [rs close];
+    }];
+    return count;
 }
 
 #pragma mark - Public Method
@@ -113,8 +161,8 @@ static NSString *const insert_topic_sql = @"INSERT INTO t_topic(channel, abstrac
     [[self sharedManager] saveChannels:channels];
 }
 
-+ (void)saveTopics:(NSArray *)topics {
-    [[self sharedManager] saveTopics:topics];
++ (void)saveTopics:(NSArray *)topics channelName:(NSString *)channel {
+    [[self sharedManager] saveTopics:topics channelName:channel];
 }
 
 + (void)cachedTopicsWithChannelName:(NSString *)channelName callBlock:(void(^)(NSArray *topics))callBlock {

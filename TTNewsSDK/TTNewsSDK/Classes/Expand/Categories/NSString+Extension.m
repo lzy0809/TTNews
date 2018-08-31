@@ -95,6 +95,7 @@
     CGFloat minimumLineHeight = font.pointSize,maximumLineHeight = minimumLineHeight+10, linespace = 5;
     CTLineBreakMode lineBreakMode = kCTLineBreakByTruncatingTail;
     CTTextAlignment alignment = kCTTextAlignmentLeft;
+    
     //Apply paragraph settings
     CTParagraphStyleRef style = CTParagraphStyleCreate((CTParagraphStyleSetting[6]){
         {kCTParagraphStyleSpecifierAlignment, sizeof(alignment), &alignment},

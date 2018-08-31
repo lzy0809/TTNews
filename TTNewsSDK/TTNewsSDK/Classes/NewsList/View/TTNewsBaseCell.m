@@ -8,118 +8,88 @@
 
 #import "TTNewsBaseCell.h"
 #import "TTTopic.h"
-//#import <YYWebImage/YYWebImage.h>
+#import <YYWebImage/YYWebImage.h>
 #import "NSString+Extension.h"
 
 @interface TTNewsBaseCell ()
-@property (nonatomic, assign) BOOL isDrawing;
-@property (nonatomic, strong) UIImageView *BGView;
+//@property (nonatomic, strong) UIImageView *BGView;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *leftImageView;
+@property (nonatomic, strong) UIImageView *middleImageView;
+@property (nonatomic, strong) UIImageView *rightImageView;
+@property (nonatomic, strong) UIView *lineView;
 @end
 
 @implementation TTNewsBaseCell
 
++ (instancetype)cellWithTableView:(UITableView *)tableView {
+    TTNewsBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TTNewsBaseCell"];
+    if (cell == nil) {
+        cell = [[TTNewsBaseCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"TTNewsBaseCell"];
+        cell.contentView.backgroundColor = [UIColor colorForHex:@"#ffffff"];
+    }
+    return cell;
+}
+
 - (void)setTopic:(TTTopic *)topic {
     _topic = topic;
     
-//    if (self.isDrawing) {
-//        return;
-//    }
-//    self.isDrawing = YES;
-    TTWeakSelf
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        CGRect rect = CGRectMake(0, 0, ScreenWidth, weakSelf.topic.cellHeight);
-        UIGraphicsBeginImageContextWithOptions(rect.size, YES, [UIScreen mainScreen].scale);
-        CGContextRef context = UIGraphicsGetCurrentContext();
-        [[UIColor colorForHex:@"#ffffff"] set];
-        CGContextFillRect(context, rect);
-        
-        if ([topic.has_video boolValue]) {
-            if ([topic.video_style integerValue] == 0) { //单图
-                [weakSelf drawRightPicWithContext:context topic:topic];
-            }
-            else if ([topic.video_style integerValue] == 2) {
-//                identifier = @"TTArticlePicView"; 大图
-            }
-        } else {
-            if (topic.middle_image.url.length == 0 && topic.middle_image.url_list.count == 0) {
-                [weakSelf drawPureTitleWithContext:context topic:topic];
-            } else {
-                if (topic.middle_image.url.length > 0 && topic.middle_image.url_list.count == 0) {
-                    [weakSelf drawRightPicWithContext:context topic:topic];
-                } else {
-                    if (topic.middle_image.url_list.count == 1) {
-                        [weakSelf drawRightPicWithContext:context topic:topic];
-                    } else {
-                        [weakSelf drawGroupPicWithContext:context topic:topic];
-                    }
-                }
-            }
-        }
-        UIImage *temp = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.BGView.frame = rect;
-            weakSelf.BGView.image = temp;
-            [weakSelf setNeedsDisplay];
-        });
-        
-    });
+    self.titleLabel.text = topic.title;
     
-    
-    if (![topic.has_video boolValue] && topic.middle_image.url_list.count > 1) {
-        CGFloat titleW = ScreenWidth - kMargin * 2;
-        CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
-        for (NSInteger i = 0; i < 3; i++) {
-            UIImageView *imageView = [[UIImageView alloc] init];
-            imageView.backgroundColor = [UIColor orangeColor];
-            imageView.frame = CGRectMake(kMargin + kImageW*i + 3*i, 14 + titleH + 14, kImageW, kImageH);
-            [self.contentView addSubview:imageView];
-        }
+    if (topic.draw_type == TTCellTypeRightPic) {
+        [self.rightImageView yy_setImageWithURL:[NSURL URLWithString:topic.pic_url] placeholder:nil];
+    } else if (topic.draw_type == TTCellTypeGroupPic) {
+        [self.leftImageView yy_setImageWithURL:[NSURL URLWithString:topic.middle_image.url_list[0].url] placeholder:nil];
+        [self.middleImageView yy_setImageWithURL:[NSURL URLWithString:topic.middle_image.url_list[1].url] placeholder:nil];
+        [self.rightImageView yy_setImageWithURL:[NSURL URLWithString:topic.middle_image.url_list[2].url] placeholder:nil];
     }
-    
 }
 
-- (void)clear {
-    if (!self.isDrawing) {
-        return;
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+//    self.BGView.frame = CGRectMake(0, 0, self.width, self.topic.cellHeight);
+    switch (self.topic.draw_type) {
+        case TTCellTypePureTitle:
+        {
+            self.leftImageView.hidden = YES;
+            self.middleImageView.hidden = YES;
+            self.rightImageView.hidden = YES;
+            CGFloat titleH = [self.titleLabel.text sizeWithFont:TTFontSize(17) maxSize:CGSizeMake(self.width - kMargin * 2, MAXFLOAT) maxNumberOfLines:2].height;
+            self.titleLabel.frame = CGRectMake(kMargin, kMargin, self.width - kMargin * 2, titleH);
+        }
+            break;
+        case TTCellTypeRightPic:
+        {
+            self.leftImageView.hidden = YES;
+            self.middleImageView.hidden = YES;
+            self.rightImageView.hidden = NO;
+            CGFloat titleW = ScreenWidth - kMargin - 16 - kImageW - kMargin;
+            CGFloat titleH = [self.titleLabel.text sizeWithFont:TTFontSize(17) maxSize:CGSizeMake(titleW, MAXFLOAT) maxNumberOfLines:2].height;
+            self.titleLabel.frame = CGRectMake(kMargin, kMargin, titleW, titleH);
+            self.rightImageView.frame = CGRectMake(self.width - kImageW - kMargin, 14, kImageW, kImageH);
+        }
+            break;
+        case TTCellTypeGroupPic:
+        {
+            self.leftImageView.hidden = NO;
+            self.middleImageView.hidden = NO;
+            self.rightImageView.hidden = NO;
+            CGFloat titleH = [self.titleLabel.text sizeWithFont:TTFontSize(17) maxSize:CGSizeMake(self.width - kMargin * 2, MAXFLOAT) maxNumberOfLines:2].height;
+            self.titleLabel.frame = CGRectMake(kMargin, kMargin, self.width - kMargin * 2, titleH);
+            self.leftImageView.frame = CGRectMake(kMargin, 14 + titleH + 14, kImageW, kImageH);
+            self.middleImageView.frame = CGRectMake(self.leftImageView.right + 3, self.leftImageView.y, kImageW, kImageH);
+            self.rightImageView.frame = CGRectMake(self.middleImageView.right + 3, self.middleImageView.y, kImageW, kImageH);
+        }
+            break;
+        default:
+            self.leftImageView.hidden = YES;
+            self.middleImageView.hidden = YES;
+            self.rightImageView.hidden = YES;
+            break;
     }
-    self.BGView.frame = CGRectZero;
-    self.BGView.image = nil;
-    self.isDrawing = NO;
+    self.lineView.frame = CGRectMake(kMargin, self.topic.cellHeight - kLineHeight, self.width - kMargin * 2, kLineHeight);
 }
-
-- (void)drawPureTitleWithContext:(CGContextRef)context topic:(TTTopic *)topic {
-    CGFloat titleW = ScreenWidth - kMargin * 2;
-    CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
-    [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
-    
-    [[UIColor colorForHex:@"#D3D3D3"] set];
-    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
-}
-
-- (void)drawRightPicWithContext:(CGContextRef)context topic:(TTTopic *)topic {
-    CGFloat imgX = ScreenWidth - kMargin - kImageW;
-    CGFloat titleW = imgX - kMargin - 16;
-    CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
-    [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
-    
-    [[UIColor orangeColor] set];
-    CGContextFillRect(context, CGRectMake(imgX, 14, kImageW, kImageH));
-    
-    [[UIColor colorForHex:@"#D3D3D3"] set];
-    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
-}
-
-- (void)drawGroupPicWithContext:(CGContextRef)context topic:(TTTopic *)topic {
-    CGFloat titleW = ScreenWidth - kMargin * 2;
-    CGFloat titleH = [topic.title sizeWithConstrainedWidth:titleW font:[UIFont systemFontOfSize:17] lineSpace:2].height;
-    [topic.title drawInContext:context position:CGPointMake(kMargin, 14) font:[UIFont systemFontOfSize:17] textColor:[UIColor colorForHex:@"#222222"] height:titleH width:titleW];
-    
-    [[UIColor colorForHex:@"#D3D3D3"] set];
-    CGContextFillRect(context, CGRectMake(kMargin, topic.cellHeight - kLineHeight, titleW, kLineHeight));
-}
-
-
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
@@ -127,49 +97,51 @@
     // Configure the view for the selected state
 }
 
-+ (instancetype)cellWithTableView:(UITableView *)tableView topic:(TTTopic *)topic {
-    NSString *identifier = [self cellIdentifier:topic];
-    TTNewsBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
-    if (cell == nil) {
-        cell = [[NSClassFromString(identifier) alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:identifier];
+- (UILabel *)titleLabel {
+    if (_titleLabel == nil) {
+        _titleLabel = [[UILabel alloc] init];
+        _titleLabel.textColor = [UIColor colorForHex:@"#222222"];
+        _titleLabel.textAlignment = NSTextAlignmentLeft;
+        _titleLabel.numberOfLines = 2;
+        [self.contentView addSubview:_titleLabel];
     }
-    return cell;
+    return _titleLabel;
 }
 
-+ (NSString *)cellIdentifier:(TTTopic *)topic {
-    NSString *identifier = @"TTNewsBaseCell";
-    if ([topic.has_video boolValue]) {
-        if ([topic.video_style integerValue] == 0) {
-            identifier = @"TTLayOutRightPicCell";
-        }
-        else if ([topic.video_style integerValue] == 2) {
-            identifier = @"TTArticlePicView";
-        }
-    } else {
-        if (topic.middle_image.url.length == 0 && topic.middle_image.url_list.count == 0) {
-            identifier = @"TTLayOutPureTitleCell";
-        } else {
-            if (topic.middle_image.url.length > 0 && topic.middle_image.url_list.count == 0) {
-                identifier = @"TTLayOutRightPicCell";
-            } else {
-                if (topic.middle_image.url_list.count == 1) {
-                    identifier = @"TTLayOutRightPicCell";
-                } else {
-                    identifier = @"TTLayOutGroupPicCell";
-                }
-            }
-        }
+- (UIImageView *)leftImageView {
+    if (_leftImageView == nil) {
+        _leftImageView = [[UIImageView alloc] init];
+        _leftImageView.hidden = YES;
+        [self.contentView addSubview:_leftImageView];
     }
-        NSLog(@"cell========%@",identifier);
-    return @"TTNewsBaseCell";
+    return _leftImageView;
 }
 
-- (UIImageView *)BGView {
-    if (_BGView == nil) {
-        _BGView = [[UIImageView alloc] init];
-        [self.contentView addSubview:_BGView];
+- (UIImageView *)middleImageView {
+    if (_middleImageView == nil) {
+        _middleImageView = [[UIImageView alloc] init];
+        _middleImageView.hidden = YES;
+        [self.contentView addSubview:_middleImageView];
     }
-    return _BGView;
+    return _middleImageView;
+}
+
+- (UIImageView *)rightImageView {
+    if (_rightImageView == nil) {
+        _rightImageView = [[UIImageView alloc] init];
+        _rightImageView.hidden = YES;
+        [self.contentView addSubview:_rightImageView];
+    }
+    return _rightImageView;
+}
+
+- (UIView *)lineView {
+    if (_lineView == nil) {
+        _lineView = [[UIView alloc] init];
+        _lineView.backgroundColor = [UIColor colorForHex:@"#e8e8e8"];
+        [self.contentView addSubview:_lineView];
+    }
+    return _lineView;
 }
 
 @end

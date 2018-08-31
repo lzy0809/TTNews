@@ -22,5 +22,6 @@
 #define kLineHeight 1 / [UIScreen mainScreen].scale
 #define kImageW  (ScreenWidth - kMargin * 2 - 3 * 2) / 3
 #define kImageH   kImageW / 1.54
+#define TTFontSize(s) [UIFont fontWithName:@"HelveticaNeue-Light" size:s]
 
 #endif /* TTCommonDefines_h */

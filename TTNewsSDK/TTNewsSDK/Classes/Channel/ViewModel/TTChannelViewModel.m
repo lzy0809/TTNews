@@ -18,11 +18,12 @@ static NSString *const kCacheChannelsKey = @"kCacheChannelsKey";
 @implementation TTChannelViewModel
 
 - (void)loadChannelListData:(void (^)(void))finishedBlock {
+    __weak typeof(self)weakSelf = self;
     [[TTNetManager sharedManager] GET:kChannelListURL parameters:[TTParseParameters requestDicPraiseChannleList] success:^(NSURLSessionDataTask *operation, id responseObject) {
         NSString *lastMD5 = [[NSUserDefaults standardUserDefaults] objectForKey:kCacheChannelsKey];
         NSString *currentMD5 = [[responseObject yy_modelToJSONString] MD5Encode];
         if ([lastMD5 isEqualToString:currentMD5]) {
-            self.channels = [TTDatabaseManager sharedManager].cacheChannels;
+            weakSelf.channels = [TTDatabaseManager sharedManager].cacheChannels;
             if (finishedBlock) {
                 finishedBlock();
             }
@@ -33,7 +34,7 @@ static NSString *const kCacheChannelsKey = @"kCacheChannelsKey";
             TTCategory *category = [TTCategory yy_modelWithJSON:dict];
             [dataArray addObject:category];
         }
-        self.channels = [dataArray copy];
+        weakSelf.channels = [dataArray copy];
         if (finishedBlock) {
             finishedBlock();
         }
@@ -44,6 +45,10 @@ static NSString *const kCacheChannelsKey = @"kCacheChannelsKey";
         [[NSUserDefaults standardUserDefaults] setObject:currentMD5 forKey:kCacheChannelsKey];
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"请求失败了");
+        weakSelf.channels = [TTDatabaseManager sharedManager].cacheChannels;
+        if (finishedBlock) {
+            finishedBlock();
+        }
     }];
 }
 

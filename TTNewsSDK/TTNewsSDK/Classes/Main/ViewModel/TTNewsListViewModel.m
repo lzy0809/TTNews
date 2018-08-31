@@ -26,6 +26,7 @@
 - (void)fetchNewsFeed:(NSString *)channel isForce:(BOOL )isForce isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock {
     
     self.topics = [TTDatabaseManager cachedTopicsWithChannelName:channel];
+    NSLog(@"数据库:%@",self.topics);
     if (channel.length == 0 || !finishedBlock) { return; }
     
     if (![TTNetManager checkNetCanUse]) {
@@ -58,7 +59,7 @@
         NSLog(@"%@频道有%ld条新闻",channel,array.count);
         [TTTool updateFetchTime:channel];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [TTDatabaseManager saveTopics:array];
+            [TTDatabaseManager saveTopics:array channelName:channel];
         });
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"请求失败---逻辑待完善");

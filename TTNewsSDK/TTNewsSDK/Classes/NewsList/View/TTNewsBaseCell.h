@@ -12,6 +12,5 @@
 @interface TTNewsBaseCell : UITableViewCell
 
 @property (nonatomic, strong) TTTopic *topic;
-+ (instancetype)cellWithTableView:(UITableView *)tableView topic:(TTTopic *)topic;
-- (void)clear;
++ (instancetype)cellWithTableView:(UITableView *)tableView;
 @end
