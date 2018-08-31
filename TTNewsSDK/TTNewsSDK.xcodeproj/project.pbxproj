@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4312DF172139823500FF9986 /* TTRefreshFootder.h in Headers */ = {isa = PBXBuildFile; fileRef = 4312DF152139823500FF9986 /* TTRefreshFootder.h */; };
+		4312DF182139823500FF9986 /* TTRefreshFootder.m in Sources */ = {isa = PBXBuildFile; fileRef = 4312DF162139823500FF9986 /* TTRefreshFootder.m */; };
 		43154DE7213249B5002F56C2 /* TTNewsSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 43154DE5213249B5002F56C2 /* TTNewsSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		43154E0F21324B76002F56C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E0E21324B76002F56C2 /* AppDelegate.m */; };
 		43154E1221324B76002F56C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43154E1121324B76002F56C2 /* ViewController.m */; };
@@ -79,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		24128622EA40F40C054ACA5D /* Pods-NewsDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsDemo/Pods-NewsDemo.release.xcconfig"; sourceTree = "<group>"; };
+		4312DF152139823500FF9986 /* TTRefreshFootder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTRefreshFootder.h; sourceTree = "<group>"; };
+		4312DF162139823500FF9986 /* TTRefreshFootder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTRefreshFootder.m; sourceTree = "<group>"; };
 		43154DE2213249B5002F56C2 /* TTNewsSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TTNewsSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		43154DE5213249B5002F56C2 /* TTNewsSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTNewsSDK.h; sourceTree = "<group>"; };
 		43154DE6213249B5002F56C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -325,6 +329,8 @@
 			children = (
 				4375EDA821355D5E00B21D34 /* TTRefreshHeader.h */,
 				4375EDA921355D5E00B21D34 /* TTRefreshHeader.m */,
+				4312DF152139823500FF9986 /* TTRefreshFootder.h */,
+				4312DF162139823500FF9986 /* TTRefreshFootder.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4312DF172139823500FF9986 /* TTRefreshFootder.h in Headers */,
 				435CC8412133A69B00EA0D3B /* NSString+Extension.h in Headers */,
 				43BCADAF213396F400285AEC /* TTNewsViewController.h in Headers */,
 				43BCADAA213396F400285AEC /* UIView+Extension.h in Headers */,
@@ -773,6 +780,7 @@
 				4375ED532133D7E500B21D34 /* TTNewsListCell.m in Sources */,
 				43BCADAD213396F400285AEC /* TTCategory.m in Sources */,
 				43BCADAC213396F400285AEC /* UIView+Extension.m in Sources */,
+				4312DF182139823500FF9986 /* TTRefreshFootder.m in Sources */,
 				43BCADA7213396F400285AEC /* TTParseParameters.m in Sources */,
 				4375ED5B2133E6FC00B21D34 /* TTPageContentView.m in Sources */,
 				43BCADBB2133990A00285AEC /* TTDatabaseManager.m in Sources */,

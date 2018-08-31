@@ -11,6 +11,7 @@
 #import "TTNewsListViewModel.h"
 #import "TTTopic.h"
 #import "TTRefreshHeader.h"
+#import "TTRefreshFootder.h"
 
 @interface TTNewsListCell () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
@@ -36,16 +37,15 @@
 - (void)setChannel:(NSString *)channel {
     _channel = channel;
     __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:channel finishedBlock:^{
+    [self.viewModel loadNewsFeedDataWithChannelName:channel isPullDown:NO completion:^(NSInteger errorType, NSArray *topics) {
         [weakSelf.tableView reloadData];
     }];
 }
 
 #pragma mark - 加载新数据
-- (void)loadNewData {
+- (void)fetchNewsFeedWithChannel:(NSString *)channel isPullDown:(BOOL )isPullDown completion:(void (^)(NSError * error, NSArray * topics))completion {
     __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:self.channel isPullDown:YES finishedBlock:^{
-//        [weakSelf.tableView.mj_header endRefreshing];
+    [self.viewModel loadNewsFeedDataWithChannelName:channel isPullDown:isPullDown completion:^(NSInteger errorType, NSArray *topics) {
         [weakSelf.tableView reloadData];
     }];
 }
@@ -83,8 +83,13 @@
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
             _tableView.estimatedRowHeight = 0;
         }
-        _tableView.mj_header = [TTRefreshHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
-//        [_tableView.mj_header beginRefreshing];
+        _tableView.mj_header = [TTRefreshHeader headerWithRefreshingBlock:^{
+            
+        }];
+        
+        _tableView.mj_footer = [TTRefreshFootder footerWithRefreshingBlock:^{
+            
+        }];
     }
     return _tableView;
 }

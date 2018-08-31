@@ -12,8 +12,8 @@
 
 @property (nonatomic, strong) NSArray *topics;
 
-- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(void))finishedBlock;
+//- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName completion:(void (^)(NSError * error, NSArray * topics))completion;
 
-- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock;
+- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown completion:(void (^)(NSInteger errorType, NSArray * topics))completion;
 
 @end

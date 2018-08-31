@@ -15,27 +15,27 @@
 
 @implementation TTNewsListViewModel
 
-- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName finishedBlock:(void(^)(void))finishedBlock {
-    [self fetchNewsFeed:channelName isForce:NO isPullDown:YES finishedBlock:finishedBlock];
+- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName completion:(void (^)(NSInteger errorType, NSArray * topics))completion {
+    [self fetchNewsFeed:channelName isForce:NO isPullDown:YES completion:completion];
 }
 
-- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock {
-    [self fetchNewsFeed:channelName isForce:NO isPullDown:isPullDown finishedBlock:finishedBlock];
+- (void)loadNewsFeedDataWithChannelName:(NSString *)channelName isPullDown:(BOOL )isPullDown completion:(void (^)(NSInteger errorType, NSArray * topics))completion {
+    [self fetchNewsFeed:channelName isForce:NO isPullDown:isPullDown completion:completion];
 }
 
-- (void)fetchNewsFeed:(NSString *)channel isForce:(BOOL )isForce isPullDown:(BOOL )isPullDown finishedBlock:(void(^)(void))finishedBlock {
+- (void)fetchNewsFeed:(NSString *)channel isForce:(BOOL )isForce isPullDown:(BOOL )isPullDown completion:(void (^)(NSInteger errorType, NSArray * topics))completion {
     
     self.topics = [TTDatabaseManager cachedTopicsWithChannelName:channel];
     NSLog(@"数据库:%@",self.topics);
-    if (channel.length == 0 || !finishedBlock) { return; }
+    if (channel.length == 0 || !completion) { return; }
     
     if (![TTNetManager checkNetCanUse]) {
-        finishedBlock();
+        completion(-1, self.topics);
         return;
     }
     
     if (!isForce && [TTTool lastUpdateTimeWithChannelName:channel withinHours:0.5]) { // 距上次请求没有超过两个小时
-        finishedBlock();
+        completion(1, self.topics);
         return;
     }
     __weak typeof(self)weakSelf = self;
@@ -55,7 +55,7 @@
             }
         }
         weakSelf.topics = [array copy];
-        finishedBlock();
+        completion(0, weakSelf.topics);
         NSLog(@"%@频道有%ld条新闻",channel,array.count);
         [TTTool updateFetchTime:channel];
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -63,6 +63,7 @@
         });
     } failure:^(NSURLSessionDataTask *operation, NSError *error) {
         NSLog(@"请求失败---逻辑待完善");
+        completion(-2, weakSelf.topics);
     }];
 }
 
