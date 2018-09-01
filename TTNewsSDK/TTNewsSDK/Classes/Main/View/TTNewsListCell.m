@@ -37,16 +37,27 @@
 - (void)setChannel:(NSString *)channel {
     _channel = channel;
     __weak typeof(self)weakSelf = self;
-    [self.viewModel loadNewsFeedDataWithChannelName:channel isPullDown:NO completion:^(NSInteger errorType, NSArray *topics) {
-        [weakSelf.tableView reloadData];
+    [self.viewModel updateNewsFeedIfNeed:channel completion:^(TTErrorType errorType, NSArray *topics) {
+        [weakSelf updateInterfaceWithTopics:topics errorType:errorType];
     }];
 }
 
+- (void)updateInterfaceWithTopics:(NSArray *)topics errorType:(TTErrorType )errorType {
+    if (errorType == TTErrorTypeNoNetwork) {
+        NSLog(@"无网情况");
+    } else if (errorType == TTErrorTypeRequestFail) {
+        NSLog(@"请求失败或者超时");
+    } else {
+        [self.tableView reloadData];
+    }
+    
+}
+
 #pragma mark - 加载新数据
-- (void)fetchNewsFeedWithChannel:(NSString *)channel isPullDown:(BOOL )isPullDown completion:(void (^)(NSError * error, NSArray * topics))completion {
+- (void)fetchNewsFeedWithChannel:(NSString *)channel isPullDown:(BOOL )isPullDown {
     __weak typeof(self)weakSelf = self;
     [self.viewModel loadNewsFeedDataWithChannelName:channel isPullDown:isPullDown completion:^(NSInteger errorType, NSArray *topics) {
-        [weakSelf.tableView reloadData];
+        [weakSelf updateInterfaceWithTopics:topics errorType:errorType];
     }];
 }
 
@@ -83,12 +94,13 @@
             _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
             _tableView.estimatedRowHeight = 0;
         }
+        __weak typeof(self)weakSelf = self;
         _tableView.mj_header = [TTRefreshHeader headerWithRefreshingBlock:^{
-            
+            [weakSelf fetchNewsFeedWithChannel:weakSelf.channel isPullDown:YES];
         }];
         
         _tableView.mj_footer = [TTRefreshFootder footerWithRefreshingBlock:^{
-            
+            [weakSelf fetchNewsFeedWithChannel:weakSelf.channel isPullDown:NO];
         }];
     }
     return _tableView;
