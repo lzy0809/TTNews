@@ -60,8 +60,8 @@ static const NSTimeInterval kNetManagerRequestTimeout = 10;
 }
 
 
-+ (BOOL)checkNetCanUse {
-    return [[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] != AFNetworkReachabilityStatusNotReachable;
++ (BOOL)notReachableNetwork {
+    return [[AFNetworkReachabilityManager sharedManager] networkReachabilityStatus] == AFNetworkReachabilityStatusNotReachable;
 }
 
 

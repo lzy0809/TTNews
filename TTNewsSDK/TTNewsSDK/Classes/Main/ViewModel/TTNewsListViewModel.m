@@ -28,7 +28,7 @@
     self.topics = [TTDatabaseManager cachedTopicsWithChannelName:channel];
     if (channel.length == 0 || !completion) { return; }
     
-    if (![TTNetManager checkNetCanUse]) {
+    if ([TTNetManager notReachableNetwork]) {
         completion(TTErrorTypeNoNetwork, self.topics);
         return;
     }

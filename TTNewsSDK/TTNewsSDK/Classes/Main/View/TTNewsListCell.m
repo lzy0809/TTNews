@@ -12,9 +12,11 @@
 #import "TTTopic.h"
 #import "TTRefreshHeader.h"
 #import "TTRefreshFootder.h"
+#import "TTErrorView.h"
 
 @interface TTNewsListCell () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) TTErrorView *errorView;
 @property (nonatomic, strong) TTNewsListViewModel *viewModel;
 @property (nonatomic, strong) NSArray *feedList;
 @end
@@ -44,13 +46,31 @@
 
 - (void)updateInterfaceWithTopics:(NSArray *)topics errorType:(TTErrorType )errorType {
     if (errorType == TTErrorTypeNoNetwork) {
-        NSLog(@"无网情况");
+        if (topics.count == 0) {
+//            self.tableView.hidden = YES;
+//            self.errorView.hidden = NO;
+            self.tableView.backgroundView = self.errorView;
+        } else {
+//            self.tableView.hidden = NO;
+//            self.errorView.hidden = YES;
+            self.tableView.backgroundView = nil;
+        }
     } else if (errorType == TTErrorTypeRequestFail) {
-        NSLog(@"请求失败或者超时");
+        if (topics.count == 0) {
+//            self.tableView.hidden = YES;
+//            self.errorView.hidden = NO;
+            self.tableView.backgroundView = self.errorView;
+        } else {
+//            self.tableView.hidden = NO;
+//            self.errorView.hidden = YES;
+            self.tableView.backgroundView = nil;
+        }
     } else {
+//        self.tableView.hidden = NO;
+//        self.errorView.hidden = YES;
+        self.tableView.backgroundView = nil;
         [self.tableView reloadData];
     }
-    
 }
 
 #pragma mark - 加载新数据
@@ -98,12 +118,24 @@
         _tableView.mj_header = [TTRefreshHeader headerWithRefreshingBlock:^{
             [weakSelf fetchNewsFeedWithChannel:weakSelf.channel isPullDown:YES];
         }];
-        
         _tableView.mj_footer = [TTRefreshFootder footerWithRefreshingBlock:^{
             [weakSelf fetchNewsFeedWithChannel:weakSelf.channel isPullDown:NO];
         }];
     }
     return _tableView;
+}
+
+- (TTErrorView *)errorView {
+    if (_errorView == nil) {
+        _errorView = [[TTErrorView alloc] initWithFrame:self.contentView.bounds];
+//        _errorView.hidden = YES;
+        __weak typeof(self) weakSelf = self;
+        _errorView.refreshData = ^{
+            [weakSelf fetchNewsFeedWithChannel:weakSelf.channel isPullDown:YES];
+        };
+//        [self.contentView addSubview:_errorView];
+    }
+    return _errorView;
 }
 
 - (TTNewsListViewModel *)viewModel {
