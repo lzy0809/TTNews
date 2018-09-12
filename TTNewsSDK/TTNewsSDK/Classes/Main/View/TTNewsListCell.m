@@ -102,6 +102,12 @@
     return topic.cellHeight;
 }
 
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.feedList.count > 0 && indexPath.row >= self.feedList.count-1) {
+        [self.tableView.mj_footer beginRefreshing];
+    }
+}
+
 - (UITableView *)tableView {
     if (_tableView == nil) {
         _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
