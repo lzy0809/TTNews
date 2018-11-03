@@ -101,6 +101,7 @@
         NSMutableArray *array = [NSMutableArray array];
         for (NSInteger i = 0; i < 16; i++) {
             UIImage *image = [UIImage imageNameTT:[NSString stringWithFormat:@"dropdown_loading_%ld",i]];
+            // 这是develop分支做的测试代码
             if (image) {            
                 [array addObject:image];
             }
