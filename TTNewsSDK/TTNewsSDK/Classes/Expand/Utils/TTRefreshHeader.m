@@ -32,6 +32,8 @@
     statusLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:statusLabel];
     self.statusLabel = statusLabel;
+    
+    // 哈哈
 }
 
 - (void)placeSubviews {
