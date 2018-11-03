@@ -101,7 +101,10 @@
         NSMutableArray *array = [NSMutableArray array];
         for (NSInteger i = 0; i < 16; i++) {
             UIImage *image = [UIImage imageNameTT:[NSString stringWithFormat:@"dropdown_loading_%ld",i]];
-            [array addObject:image];
+            // 修复image为nil时造成的崩溃
+            if (image) {
+                [array addObject:image];
+            }
         }
         _images = [array copy];
     }
